@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Spartan&family=Spinnaker&display=swap');
+
+.restaurants {
+    font-size: 20px;
+    display: block;
+    align-items: center;
+    color: white;
+}
+
+.homePage h2{
+    font-size: 35;
+    align-items: center;
+}
+
+#kitchen{
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+#kitchen img{
+    height: 100vh !important;
+    width: 50%;
+    float: left;
+
+
+}
+
+#text{
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 2em;
+    width: 50vw;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 400;
+    padding: 2rem;
+    line-height: 30px;
+    opacity: 0.9;
+    color:black;
+    font-size: 16px;
+    text-align: left;
+
+}

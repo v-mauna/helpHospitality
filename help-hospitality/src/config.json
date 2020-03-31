@@ -1,0 +1,5 @@
+{
+    "api":{
+        "invokeUrl" : "https://fsuy93pcja.execute-api.us-east-1.amazonaws.com/Prod"
+    }
+}
