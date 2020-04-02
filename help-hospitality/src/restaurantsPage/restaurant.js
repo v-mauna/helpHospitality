@@ -1,5 +1,6 @@
 import React, { Component, Fragment }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './restaurant.css'
 
 export default class Restaurant extends Component {
 
@@ -25,7 +26,7 @@ export default class Restaurant extends Component {
 
   render() {
     return (
-      <div className="tile is-child box notification is-success">
+      <div className="restaurant">
         {
           this.props.isAdmin && 
           <Fragment>
@@ -52,10 +53,14 @@ export default class Restaurant extends Component {
                 onClick={ this.handleEditSave }
               >save</button>
             </div>
-          : <div>
-              <p className="restaurantName">{ this.props.name }</p>
-              <p className="restaurantHours">id: { this.props.hours}</p>
-              <p className="restaurantGoFundMe">id: { this.props.goFundMe}</p>
+          : <div id = "restaurantInfo">
+              <p>Name: { this.props.name }</p>
+              <p>Address: { this.props.address}</p>
+              <p>City: { this.props.city }</p>
+              <p>Zip: { this.props.zip }</p>
+              <p>Hours: { this.props.hours }</p>
+              <p >Neighborhood: { this.props.neighborhood}</p>
+              <p>Donations Link: { this.props.donations}</p>
             </div>
         }
       </div>

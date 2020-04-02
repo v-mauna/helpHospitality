@@ -25,7 +25,6 @@ const Navbar = () => {
           </Link>{' '}
           <Link
             id="link"
-            smooth={true}
             to="/restaurants"
             activeClassName="max-screen"
           >
@@ -33,7 +32,6 @@ const Navbar = () => {
           </Link>
           <NavLink
             id="link"
-            smooth={true}
             to="/resources"
             activeClassName="max-screen"
           >
@@ -41,7 +39,6 @@ const Navbar = () => {
           </NavLink>{''}
           <NavLink
             id="link"
-            smooth={true}
             to="/signup"
             activeClassName="max-screen"
           >
@@ -49,7 +46,6 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             id="link"
-            smooth={true}
             to="/login"
             activeClassName="max-screen"
           >

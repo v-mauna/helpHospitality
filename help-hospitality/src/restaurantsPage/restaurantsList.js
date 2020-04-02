@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Restaurant from './restaurant';
 import axios from 'axios';
 import './restaurantsList.css';
@@ -8,20 +8,28 @@ const config = require('../config.json');
 
 export default class Restaurants extends Component {
 	state = {
-		newproduct: null,
+		newRestaurant: null,
 		restaurants: []
 	};
 
-	fetchProducts = () => {
-		// add call to AWS API Gateway to fetch products here
-		// then set them in state
+	fetchRestaurants = async () => {
+		const apiUrl = config.api.invokeUrl;
+		try {
+			const response = await axios.get(`${apiUrl}/restaurants`);
+			this.setState({ restaurants: response.data });
+		} catch (error) {
+			console.log('Your error is:', error);
+		}
 	};
 
 	componentDidMount = () => {
-		this.fetchProducts();
+		this.fetchRestaurants();
 	};
 
 	render() {
+		const restaurantList = this.state.restaurants.Items
+		console.log('RL',restaurantList)
+		if(restaurantList){
 		return (
 			<div className="restaurants">
 				<div id="kitchen">
@@ -29,9 +37,16 @@ export default class Restaurants extends Component {
 					<p id="text">
 						{' '}If you're looking to help your favorite restaurant, or maybe even a few more, you're in the
 						right place.{' '}
+						 {restaurantList.map( restaurant => <Restaurant name={restaurant.name} />)
+						}
+						
 					</p>
 				</div>
 			</div>
-		);
+		)
+		}
+		return (
+			<div> No restaurants available </div>
+		)
 	}
 }

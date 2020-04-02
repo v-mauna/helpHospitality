@@ -23,18 +23,27 @@
 
 }
 
+a {
+    text-decoration: none;
+    color: white
+}
+
+a:hover{
+    color: yellow;
+}
+
 #homeText{
     position: absolute;
     position: absolute;
     top: 50%;
     margin-left: 50%;
     transform: translate(-50%, -50%);
-    width: 30vw;
+    width: 100vw;
     height: 40vh;
     box-sizing: border-box;
     font-family: 'Spinnaker', sans-serif;
     background-color: rgba(0,0,0,0.5);
-    padding: 2rem;
+    padding: 5em;
     line-height: 30px;
     opacity: 0.9;
     color:white;

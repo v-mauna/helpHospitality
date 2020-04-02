@@ -1,6 +1,6 @@
 import React from 'react';
 import './resources.css';
-import BOH from '../images/boh.jpg'
+import BOH from '../images/noBailout.png'
 
 const Resources = ()=> {
 		return (
