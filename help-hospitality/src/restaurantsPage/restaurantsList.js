@@ -33,11 +33,12 @@ export default class Restaurants extends Component {
 		return (
 			<div className="restaurants">
 				<div id="kitchen">
-					<img src={Kitchen} alt="Skyline" />
+					<img src={Kitchen} alt="Kitchen" />
 					<p id="text">
-						{' '}If you're looking to help your favorite restaurant, or maybe even a few more, you're in the
-						right place.{' '}
-						 {restaurantList.map( restaurant => <Restaurant name={restaurant.name} />)
+						{' '}Our local restaurants need our help. Let's help keep our favorite spaces alive by donating and if they're open, by ordering a meal or two for yourself or maybe for our healthcare workers that are on the frontline and who need all the support they can get. {' '}
+						 {restaurantList.map( restaurant => <Restaurant name={restaurant.name}
+						 address={restaurant.address} hours={restaurant.hours} city={restaurant.city}
+						 neighborhood={restaurant.neighborhood} donations={restaurant.donations} zip={restaurant.zip} bio={restaurant.bio} />)
 						}
 						
 					</p>
@@ -46,7 +47,14 @@ export default class Restaurants extends Component {
 		)
 		}
 		return (
-			<div> No restaurants available </div>
+			<div className="restaurants"> 
+			<div id="kitchen">
+			<img src={Kitchen} alt="Skyline" />
+			<p id="restaurantText">
+						{' '}{' '}
+						No restaurants are available at this time.</p> 
+			</div>
+			</div>
 		)
 	}
 }

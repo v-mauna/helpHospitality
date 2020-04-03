@@ -4,62 +4,48 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-family: 'Spinnaker', sans-serif;
-    color: linen;
     font-size: 3vw;
     font-weight: bold;
-    margin: 0px 0px 10vh -10px;
-    padding-left: 7%;
     padding-top: 20px;
     padding-bottom: 15px;
-    position: fixed;
-    z-index: 1;
-    width: 92.5%;
-    top: 0;
+    position: relative;
+    width: 100%;
 }
 
 #link{
     color: black;
     text-decoration: none;
-    margin-left: 2em;
+    margin-left: 1em;
 }
-
-NavLink:hover {
-    color: white;
-}
-
 
 .topNav {
     float: right;
     padding: 0% 5% 0% 0%;
     font-size: 12px;
-    margin-bottom: 10vh;
+    margin-bottom: 1vh;
+    margin-left: 1em;
     
-}
-  
-.navBar a:hover {
-    color: white;
 }
 
 .dropNav {
     float: right;
-    /* overflow: hidden; */
     display: none;
     margin-right: 2vw;
+    color: black;
 }
 
 #dropbtn {
     background-color: transparent;
     font-size: 20px;
-    color:var(--green);
 }
 
 .dropdown-content {
-    display: none;
+    display: block;
     position: absolute;
-    background-color: transparent;
     min-width: 160px;
     z-index: 1;
     text-align: right;
+    
 }
 
 .dropNav:hover .dropdown-content {
@@ -68,7 +54,6 @@ NavLink:hover {
 }
 
 .min-screen {
-    float: none;
     color: black;
     font-weight: normal;
     padding: 5px 0px;
@@ -85,9 +70,6 @@ NavLink:hover {
     }
     
     .topNav {
-        display: none;
-    }
-    #leftName{
         display: none;
     }
   }

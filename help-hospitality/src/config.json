@@ -1,5 +1,11 @@
 {
     "api":{
         "invokeUrl" : "https://fsuy93pcja.execute-api.us-east-1.amazonaws.com/Prod"
+    },
+    "cognito" : {
+        "REGION" : "US_EAST_1",
+        "USER_POOL_ID": "us-east-1_TertIqC2s",
+        "APP_CLIENT_ID": "4j2b20rhd9idn0kl8admq3lc8m"
+
     }
 }
