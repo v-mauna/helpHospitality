@@ -4,6 +4,7 @@ import Home from '../src/homePage/home'
 import Restaurants from '../src/restaurantsPage/restaurantsList'
 import Resources from '../src/resourcesPage/resources'
 import Signup from '../src/auth/signUpPage/signUp'
+import Login from '../src/auth/loginPage/loginPage'
 
 class Routes extends Component {
   render() {
@@ -13,6 +14,7 @@ class Routes extends Component {
         <Route exact path='/restaurants' component={Restaurants} />
         <Route exact path='/resources' component={Resources} />
         <Route exact path="/signup" component={Signup}/>
+        <Route exact path="/login" component={Login}/>
       </Switch>
     )
   }
