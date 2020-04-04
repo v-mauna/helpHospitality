@@ -30,12 +30,14 @@ class LogIn extends Component {
 		this.clearErrorState();
 		const { password, username, } = this.state;
 		try {
-			const signUpResponse = await Auth.signIn({
+			const user = await Auth.signIn({
 				username,
 				password,
 				});
 			this.props.history.push('/restaurants');
-			console.log(signUpResponse);
+      console.log('User',user);
+      this.props.auth.setAuthStatus(true);
+      this.props.auth.setUser(user)
 		} catch (error) {
 			let err = null;
 			!error.message ? (err = { message: error }) : (err = error);

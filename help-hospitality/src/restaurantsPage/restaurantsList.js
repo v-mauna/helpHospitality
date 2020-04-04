@@ -31,6 +31,7 @@ export default class Restaurants extends Component {
 		console.log('RL',restaurantList)
 		if(restaurantList){
 		return (
+			<article>
 			<div className="restaurants">
 				<div id="kitchen">
 					<img src={Kitchen} alt="Kitchen" />
@@ -38,12 +39,13 @@ export default class Restaurants extends Component {
 						{' '}Our local restaurants need our help. Let's help keep our favorite spaces alive by donating and if they're open, by ordering a meal or two for yourself or maybe for our healthcare workers that are on the frontline and who need all the support they can get. {' '}
 						 {restaurantList.map( restaurant => <Restaurant name={restaurant.name}
 						 address={restaurant.address} hours={restaurant.hours} city={restaurant.city}
-						 neighborhood={restaurant.neighborhood} donations={restaurant.donations} zip={restaurant.zip} bio={restaurant.bio} />)
+						 neighborhood={restaurant.neighborhood} donations={restaurant.donations} zip={restaurant.zip} bio={restaurant.bio} key={restaurant.name}/>)
 						}
 						
 					</p>
 				</div>
 			</div>
+			</article>
 		)
 		}
 		return (
