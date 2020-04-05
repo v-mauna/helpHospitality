@@ -3,7 +3,7 @@ import FormErrors from '../formErrors/formErrors';
 import Validate from '../utility/FormValidation';
 import { Auth } from 'aws-amplify';
 import './forgotPassword.css';
-import PeterPans from '../../images/peterPans.jpg'
+import PeterPans from '../../images/peterPans.jpg';
 
 class ForgotPasswordVerification extends Component {
   constructor() {
@@ -68,16 +68,14 @@ class ForgotPasswordVerification extends Component {
       <section className="forgotPassword">
         <div className="forgotPasswordForm">
           <img id="peterPans" src={PeterPans} alt="Peter Pans Donut Shop" />
-          <h1>Set new password</h1>
-          <p>
-            Please enter the verification code sent to your email address below,
-            your email address and a new password.
-          </p>
-          <FormErrors formerrors={this.state.errors} />
-
-          <form onSubmit={this.passwordVerificationHandler}>
-            <div className="field">
-              <p className="control">
+          <div id="forgotPasswordText">
+            <form onSubmit={this.passwordVerificationHandler}>
+              <br />
+              <span>Set new password</span>
+              <p>
+                Please enter the verification code sent to your email address
+                below, your email address and a new password.
+                <FormErrors formerrors={this.state.errors} />
                 <input
                   type="text"
                   className="input"
@@ -87,10 +85,7 @@ class ForgotPasswordVerification extends Component {
                   value={this.state.verificationcode}
                   onChange={this.onInputChange}
                 />
-              </p>
-            </div>
-            <div className="field">
-              <p className="control has-icons-left">
+                <br />
                 <input
                   className="input"
                   type="email"
@@ -100,13 +95,7 @@ class ForgotPasswordVerification extends Component {
                   value={this.state.email}
                   onChange={this.onInputChange}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control has-icons-left">
+                <br />
                 <input
                   type="password"
                   className="input"
@@ -115,17 +104,11 @@ class ForgotPasswordVerification extends Component {
                   value={this.state.newpassword}
                   onChange={this.onInputChange}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control">
+                <br />
                 <button className="button is-success">Login</button>
               </p>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </section>
     );
