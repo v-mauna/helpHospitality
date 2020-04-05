@@ -1,43 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Spartan&family=Spinnaker&display=swap');
 
-#login{
-  width: 100%;
-  height:100%;
-  font-size: 16px;
-  font-size: 14px;
-  font-family: 'Spinnaker', sans-serif;
+.login{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    align-items: left;
 }
-
 #loginImg {
-  width: 50%;
-  height: 50%;
-  float: left;
-  margin-right: 0px;
-}
-
-#header{
-    text-transform: uppercase;
-    font-size: 2vh;
-    letter-spacing: 2px;
-    font-weight: bold;
-}
-
-#link{
-    color: black;
-}
-
-input{
+    width: 50%;
     margin-top: 1em;
-    width: 10vw;
+    display: flex;
+    justify-content: flex-start;
+
+}
+.loginForm{
+    width: 100%;
+    display: flex;
+    flex-basis: 50%;
+}
+#loginInputBox {
+    width: 250px;
+    height: 20px;
+}
+
+#loginFormText{
+  margin-top:2em;
+    position: relative;
+    font-weight: 800;
+    height: 50%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 30px;
+    opacity: 0.9;
+    color:black;
+    font-size: 14px;
+    text-align: left;
+    display: flex;
+    align-self: flex-start;
+    margin-left: 2em;
+    font-family: 'Spinnaker', sans-serif;
+}
+
+
+link{
+  color: black;
 }
 
 button{
-    background-color: black;
-    color: white;
-    margin-bottom: 1em;
+  background-color: black;
+  color: white;
+  height: 40px;
+  margin: 1em 0 2em;
 }
 
-
-
-
-
+span{
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: none;
+}

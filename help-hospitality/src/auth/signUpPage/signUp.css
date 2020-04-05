@@ -44,3 +44,10 @@ span{
     font-size: 10px;
     text-transform: lowercase;
 }
+
+button{
+    background-color: black;
+    color: white;
+    height: 40px;
+    margin-top: 1em;
+}
