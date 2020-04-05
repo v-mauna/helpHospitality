@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
+import './loginPage.css'
+import People from '../../images/people.jpg'
 
 class LogIn extends Component {
   state = {
@@ -60,54 +62,50 @@ class LogIn extends Component {
 
   render() {
     return (
-      <section className="section auth">
-        <div className="container">
-          <h1>Log in</h1>
-
-          <form onSubmit={this.handleSubmit}>
-            <div className="field">
-              <p className="control">
+      <div>
+        <div id="login">
+          <img id="loginImg" src={People} alt="People Gathered"/>
+          <p id="header">Log in</p>
+          <form id="loginImg" onSubmit={this.handleSubmit}>
+          <p>
+                Username: <br/>
                 <input 
                   className="input" 
                   type="text"
-                  id="username"
+                  name="username"
                   aria-describedby="usernameHelp"
                   placeholder="Enter username or email"
                   value={this.state.username}
                   onChange={this.onInputChange}
                 />
               </p>
-            </div>
-            <div className="field">
               <p className="control has-icons-left">
+                Password: <br/>
                 <input 
                   className="input" 
                   type="password"
-                  id="password"
+                  name="password"
                   placeholder="Password"
                   value={this.state.password}
                   onChange={this.onInputChange}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
               </p>
-            </div>
-            <div className="field">
-              <p className="control">
-                <a href="/forgotpassword">Forgot password?</a>
+              <p>
+              <a id="link" href="/forgotpassword">Forgot password?</a>
               </p>
-            </div>
             <div className="field">
               <p className="control">
                 <button className="button is-success">
                   Login
                 </button>
-              </p>
-            </div>
+                <br/>
+                Sign in to your account to view and edit your profile.
+                </p>
+                </div>
           </form>
-        </div>
-      </section>
+          </div>
+          </div>
+
     );
   }
 }

@@ -7,20 +7,16 @@
     font-size: 16px;
 }
 
-#kitchen{
-    width: 100%;
-    height: 50%;
-    margin: 0;
-}
 
-#kitchen img{
+.restaurants img{
     height: 50%;
     width: 100%;
 }
 
-#restaurantText {
+#restaurants{
+    
     position: absolute;
-    margin-top: em;
+    margin-top: 1em;
     margin-left:1em;
     height: 100vh;
     font-weight: 400;
@@ -29,6 +25,7 @@
     font-size: 16px;
     text-align: left;
     align-items: left;
+    align-content: left;
 
 
 }

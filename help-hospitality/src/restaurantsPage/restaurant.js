@@ -52,7 +52,7 @@ export default class Restaurant extends Component {
           )}
           {this.state.isEditMode ? (
             <div>
-              <p>Edit Hours</p>
+              <p>Edit Hours<br/>
               <input
                 className="input is-medium"
                 type="text"
@@ -60,7 +60,7 @@ export default class Restaurant extends Component {
                 value={this.state.updatedHours}
                 onChange={this.onAddRestaurantHourChange}
               />
-              <p className="restaurant-id">id: {this.props.id}</p>
+              id: {this.props.id}</p>
               <button
                 type="submit"
                 className="button is-info is-small"
