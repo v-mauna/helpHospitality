@@ -9,8 +9,8 @@ class ForgotPasswordVerification extends Component {
   constructor() {
     super();
     this.state = {
-      verificationcode: '',
-      email: '',
+      confirmationcode: '',
+      username: '',
       newpassword: '',
       errors: {
         cognito: null,
@@ -45,10 +45,13 @@ class ForgotPasswordVerification extends Component {
       });
     }
     try {
+      const {username, confirmationcode, newpassword} = this.state;
+      const ConfirmationCode = confirmationcode;
+      console.log('Code',confirmationcode)
       await Auth.forgotPasswordSubmit(
-        this.state.email,
-        this.state.verificationcode,
-        this.state.newpassword
+        username,
+        ConfirmationCode,
+        newpassword
       );
       this.props.history.push('/changePasswordConfirmation');
     } catch (error) {
@@ -57,8 +60,9 @@ class ForgotPasswordVerification extends Component {
   };
 
   onInputChange = (event) => {
+    console.log('cc',event.target.id,event.target.value)
     this.setState({
-      [event.target.id]: event.target.value,
+      [event.target.name]: event.target.value,
     });
     document.getElementById(event.target.id).classList.remove('is-danger');
   };
@@ -79,17 +83,19 @@ class ForgotPasswordVerification extends Component {
                 <input
                   type="text"
                   className="input"
-                  id="verificationcode"
+                  id="confirmationcode"
+                  name="confirmationcode"
                   aria-describedby="verificationCodeHelp"
                   placeholder="Enter verification code"
-                  value={this.state.verificationcode}
+                  value={this.state.confirmationcode}
                   onChange={this.onInputChange}
                 />
                 <br />
                 <input
                   className="input"
-                  type="email"
-                  id="email"
+                  type="username"
+                  name="username"
+                  id="username"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
                   value={this.state.email}
@@ -100,6 +106,7 @@ class ForgotPasswordVerification extends Component {
                   type="password"
                   className="input"
                   id="newpassword"
+                  name="newpassword"
                   placeholder="New password"
                   value={this.state.newpassword}
                   onChange={this.onInputChange}
