@@ -74,7 +74,7 @@ class ForgotPassword extends Component {
                   onChange={this.onInputChange}
                 />
                 <br/>
-                <button className="button is-success">Submit</button>
+                <button type="submit" className="button is-success">Submit</button>
               </p>
             </form>
           </div>

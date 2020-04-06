@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import FormErrors from '../formErrors/formErrors'
-import Validate from "../utility/FormValidation";
+import Validate from '../utility/FormValidation'
+import { Auth } from 'aws-amplify'
+import PeterPans from '../../images/peterPans.jpg'
+import './changePassword.css'
 
-class ChangePassword extends Component {
+export default class ChangePassword extends Component {
   state = {
-    oldpassword: "",
-    newpassword: "",
-    confirmpassword: "",
+    oldpassword: '',
+    newpassword: '',
+    confirmpassword: '',
     errors: {
       cognito: null,
       blankfield: false,
-      passwordmatch: false
-    }
+      passwordmatch: false,
+    },
   }
 
   clearErrorState = () => {
@@ -19,103 +22,161 @@ class ChangePassword extends Component {
       errors: {
         cognito: null,
         blankfield: false,
-        passwordmatch: false
-      }
-    });
+        passwordmatch: false,
+      },
+    })
   }
 
   handleSubmit = async event => {
-    event.preventDefault();
+    event.preventDefault()
 
     // Form validation
-    this.clearErrorState();
-    const error = Validate(event, this.state);
+    this.clearErrorState()
+    const error = Validate(event, this.state)
     if (error) {
       this.setState({
-        errors: { ...this.state.errors, ...error }
-      });
+        errors: { ...this.state.errors, ...error },
+      })
     }
-
-    // AWS Cognito integration here
-  };
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      console.log('User', user)
+      await Auth.changePassword(
+        user,
+        this.state.oldpassword,
+        this.state.newpassword
+      )
+      this.props.history.push('/changepasswordconfirmation')
+    } catch (err) {
+      console.log('Change password error', err)
+    }
+  }
 
   onInputChange = event => {
     this.setState({
-      [event.target.id]: event.target.value
-    });
-    document.getElementById(event.target.id).classList.remove("is-danger");
+      [event.target.name]: event.target.value,
+    })
+    document.getElementById(event.target.id).classList.remove('is-danger')
   }
-
   render() {
     return (
-      <section className="section auth">
-        <div className="container">
-          <h1>Change Password</h1>
-          <FormErrors formerrors={this.state.errors} />
+      <div className="changePassword">
+        <div className="changePasswordForm">
+          <img id="peterPans" src={PeterPans} alt="Peter Pans Donut Shop" />
+          <div id="changePasswordFormText">
+            <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+              <br />
 
-          <form onSubmit={this.handleSubmit}>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input 
-                  className="input" 
-                  type="password"
-                  id="oldpassword"
-                  placeholder="Old password"
+              <h3>Change Your Password</h3>
+              <p>
+                <label htmlFor="username">Old password</label>
+                <br />
+                <input
+                  id="inputBox"
                   value={this.state.oldpassword}
-                  onChange={this.onInputChange}
+                  onChange={this.handleChange}
+                  name="oldPassword"
+                  placeholder="Enter your old password"
+                  type="text"
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control has-icons-left">
+                <br />
+                <label value={this.state.newpassword} htmlFor="password">
+                  New Password
+                  <br />
+                </label>
                 <input
-                  className="input"
+                  id="inputBox"
+                  name="newpassword"
+                  onChange={this.handleChange}
                   type="password"
-                  id="newpassword"
-                  placeholder="New password"
-                  value={this.state.newpassword}
-                  onChange={this.onInputChange}
+                  placeholder="Enter your new password"
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control has-icons-left">
+                <br/>
+                <label value={this.state.confirmpassword} htmlFor="password">
+                  Confirm Password
+                  <br />
+                </label>
                 <input
-                  className="input"
+                  id="inputBox"
+                  name="confirmpassword"
+                  onChange={this.handleChange}
                   type="password"
-                  id="confirmpassword"
                   placeholder="Confirm password"
-                  value={this.state.confirmpassword}
-                  onChange={this.onInputChange}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control">
-                <a href="/forgotpassword">Forgot password?</a>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control">
-                <button className="button is-success">
-                  Change password
+
+                </p>
+                <a id="resetLink" href="/forgotPassword">Forgot Password?</a>
+                <div>
+                 <FormErrors formerrors={this.state.errors} />
+                 </div>
+                <button type="submit" onClick={this.handleSubmit}>
+                  Submit
                 </button>
-              </p>
-            </div>
-          </form>
+                <br />
+              
+            </form>
+          </div>
         </div>
-      </section>
+      </div>
     );
   }
 }
 
-export default ChangePassword;
+
+//   render () {
+//     return (
+//       <div className='changePassword'>
+//         <div className='changePasswordForm'>
+//           <img id='peterPans' src={PeterPans} alt='Peter Pans Donut Shop' />
+//           <div id='changePasswordText'>
+//             <form onSubmit={this.handleSubmit}>
+//               <br />
+//               <p>
+//                 <span>Change Password</span><br/>
+//                 <input
+//                   className='input'
+//                   type='password'
+//                   id='oldpassword'
+//                   placeholder='Old password'
+//                   value={this.state.oldpassword}
+//                   onChange={this.onInputChange}
+//                 />
+//                 <br />
+//                 <input
+//                   className='input'
+//                   type='password'
+//                   id='newpassword'
+//                   placeholder='New password'
+//                   value={this.state.newpassword}
+//                   onChange={this.onInputChange}
+//                 />
+//                 <br />
+//                 <input
+//                   className='input'
+//                   type='password'
+//                   id='confirmpassword'
+//                   placeholder='Confirm password'
+//                   value={this.state.confirmpassword}
+//                   onChange={this.onInputChange}
+//                 />
+//                 <br />
+//                 <a id='resetLink' href='/forgotpassword'>
+//                   Forgot password?
+//                 </a>
+//                 <div>
+//                 <FormErrors formerrors={this.state.errors} />
+//                 </div>
+//                 <br />
+//                 <button type='submit' className='button is-success'>
+//                   Change password
+//                 </button>
+//               </p>
+//             </form>
+//           </div>
+//         </div>
+//       </div>
+//     )
+//   }
+// }
+
+// export default ChangePassword

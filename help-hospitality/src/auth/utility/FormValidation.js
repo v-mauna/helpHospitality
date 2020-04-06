@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 function validate(event, state) {
     // clear all error messages
     const inputs = document.getElementsByClassName("is-danger");
@@ -64,7 +65,7 @@ function validate(event, state) {
       document.getElementById("confirmpassword").classList.add("is-danger");
       return { passwordmatch: true };
     }
-    return;
+    
   }
   
   export default validate;

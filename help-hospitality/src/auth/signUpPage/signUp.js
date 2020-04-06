@@ -73,10 +73,10 @@ class Signup extends React.Component {
       <div className="signUp">
         <div className="signUpForm">
           <img id="signUpImg" src={Table} alt="table" />
-          <p id="signUpFormText">
-            <br />
+          <div id="signUpFormText">
             <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
               <h3>create an account</h3>
+              <p>
               <label htmlFor="firstName">
                 first name
                 <br />
@@ -145,7 +145,7 @@ class Signup extends React.Component {
               </label>
               <input
                 id="inputBox"
-                name="confirm password"
+                name="confirmpassword"
                 onChange={this.handleChange}
                 type="password"
                 placeholder="Confirm password"
@@ -154,8 +154,9 @@ class Signup extends React.Component {
               <button type="submit" onClick={this.handleSubmit}>
                 create account
               </button>
+              </p>
             </form>
-          </p>
+        </div>
         </div>
       </div>
     );

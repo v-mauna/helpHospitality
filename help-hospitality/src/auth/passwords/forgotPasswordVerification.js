@@ -54,8 +54,8 @@ class ForgotPasswordVerification extends Component {
         newpassword
       );
       this.props.history.push('/changePasswordConfirmation');
-    } catch (error) {
-      console.log('Forgot Password Verification Error', error);
+    } catch (err) {
+      console.log('Forgot Password Verification Error', err);
     }
   };
 
@@ -112,7 +112,7 @@ class ForgotPasswordVerification extends Component {
                   onChange={this.onInputChange}
                 />
                 <br />
-                <button className="button is-success">Login</button>
+                <button type="submit" className="button is-success">Submit</button>
               </p>
             </form>
           </div>

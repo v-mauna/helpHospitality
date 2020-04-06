@@ -43,6 +43,7 @@ export default class Restaurant extends Component {
                 <FontAwesomeIcon icon="edit" />
               </a>
               <button
+              type="submit"
                 onClick={(event) =>
                   this.props.handleDeleteRestaurant(this.props.id, event)
                 }
