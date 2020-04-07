@@ -1,0 +1,29 @@
+.errorPage{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    box-sizing: border-box;
+}
+
+#errorPageImg {
+    width: 100vw;
+}
+
+.errorPageText{
+    position: absolute;
+    top: 50%;
+    margin-left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    font-family: 'Spinnaker', sans-serif;
+    padding: 1em 3em ;
+    line-height: 20px;
+    background-color: rgba(0,0,0,0.6);
+    color:white;
+    font-size: 14px;
+    text-transform: uppercase;
+
+}
