@@ -43,7 +43,7 @@ class LogIn extends Component {
         username,
         password,
       });
-      this.props.history.push('/restaurants');
+      this.props.history.push('/profile');
       console.log('User', user);
       this.props.auth.setAuthStatus(true);
       this.props.auth.setUser(user);

@@ -34,9 +34,9 @@ export default class ChangePassword extends Component {
     this.clearErrorState()
     const error = Validate(event, this.state)
     if (error) {
-      this.setState({
-        errors: { ...this.state.errors, ...error },
-      })
+      this.setState(prevState=>({
+        errors: [prevState.errors, ...error ],
+      }))
     }
     try {
       const user = await Auth.currentAuthenticatedUser()

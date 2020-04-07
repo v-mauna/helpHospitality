@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom'
 import { Auth } from 'aws-amplify'
 
 export default class Navbar extends React.Component {
+  constructor(){
+    super()
+    this.handleLogout = this.handleLogout.bind(this);
+  }
   handleLogout = async event => {
     event.preventDefault()
     try {
@@ -16,7 +20,7 @@ export default class Navbar extends React.Component {
     }
   }
   render () {
-    console.log('Props', this.props)
+    
     return (
       <nav id='main-navigation'>
         <link
@@ -25,9 +29,9 @@ export default class Navbar extends React.Component {
         />
         <div className='navBar' id='myHeader'>
           <div className='topNav'>
-            {this.props.auth.isAuthenticated && this.props.auth.user && (
-              <Fragment>Hello, {this.props.auth.user.username}</Fragment>
-            )}
+            {/* {this.props.auth.isAuthenticated && this.props.auth.user && (
+              <Fragment id="greeting">Welcome,{this.props.auth.user.attributes.name}</Fragment>
+            )} */}
             <Link id='link' offset={-70} duration={500} to='/'>
               Home
             </Link>{' '}

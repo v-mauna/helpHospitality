@@ -30,6 +30,11 @@
     margin-bottom: 2em;
 }
 
+#greeting{
+    display: flex;
+    align-self: flex-start;
+}
+
 .topNav {
     float: right;
     padding: 0% 1% 0% 0%;
