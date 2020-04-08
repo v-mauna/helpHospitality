@@ -11,6 +11,7 @@ import ChangePassword from '../src/auth/passwords/changePassword'
 import ChangePasswordConfirm from '../src/auth/passwords/changePasswordConfirm'
 import ForgotPassword from '../src/auth/passwords/forgotPassword'
 import ForgotPasswordVerification from '../src/auth/passwords/forgotPasswordVerification'
+import ErrorPage from '../src/errorPage/errorPage'
 
 class Routes extends Component {
   state = {
@@ -37,7 +38,7 @@ class Routes extends Component {
     return (
       <Router>
         <div />
-        <Navbar auth={authProps} />
+        <Navbar props={this.props} auth={authProps} />
         <Switch>
           <Route
             exact
@@ -64,10 +65,13 @@ class Routes extends Component {
             path='/login'
             render={props => <Login {...props} auth={authProps} />}
           />
+          { this.state.isAuthenticated && this.state.user ? 
           <Route
             exact
             path='/profile'
-            render={props => <Profile {...props} auth={authProps} />}/>
+            render={props => <Profile {...props} auth={authProps} />}/> : 
+              <Route exact path="/*" render={props=><ErrorPage {...props} auth={authProps} />
+          }/>}
           <Route
             exact
             path='/forgotpassword'
@@ -91,6 +95,7 @@ class Routes extends Component {
             )}
           />
           />
+          <Route exact path="/*" render={props=><ErrorPage {...props} auth={authProps} />}/>
         </Switch>
       </Router>
     )

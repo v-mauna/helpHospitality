@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 import { Auth } from 'aws-amplify'
 
 export default class Navbar extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.handleLogout = this.handleLogout.bind(this);
   }
   handleLogout = async event => {
@@ -55,7 +55,14 @@ export default class Navbar extends React.Component {
               <Fragment>
                 <Link
                   id='link'
-                  to='/'
+                  to='/profile'
+                  className='max-screen'
+                >
+                  Profile
+                </Link>
+                <Link
+                  id='link'
+                  to='/login'
                   onClick={this.handleLogout}
                   className='max-screen'
                 >

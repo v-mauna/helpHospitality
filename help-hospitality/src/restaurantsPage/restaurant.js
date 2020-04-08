@@ -80,8 +80,6 @@ export default class Restaurant extends Component {
                   <br />
                   City: {this.props.city}
                   <br />
-                  Zip: {this.props.zip}
-                  <br />
                   Hours: {this.props.hours}
                   <br />
                   Neighborhood: {this.props.neighborhood}
