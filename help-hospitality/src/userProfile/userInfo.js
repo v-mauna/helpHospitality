@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import RestaurantEdit from './editRestaurant'
 import Front from '../images/restaurantFront.jpg'
-import './profile.css'
+import './userInfo.css'
 
 const config = require('../config.json')
 
@@ -228,7 +228,7 @@ class Profile extends Component {
                 </button>
               </form>
             </div>
-          </div>
+            <div id="usersRestaurants">
           <div className='updateRestaurants'>
             {this.state.restaurants.Items.map(restaurant => (
               <RestaurantEdit
@@ -243,6 +243,8 @@ class Profile extends Component {
               />
             ))}
           </div>
+          </div>
+        </div>
         </div>
       )
     }

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import './userInfo.css'
 
 export default class RestaurantEdit extends Component {
   constructor (props) {
@@ -28,14 +29,13 @@ export default class RestaurantEdit extends Component {
 
   render () {
     return (
-      <div className='tile is-child box notification is-success'>
+      <div id='updateRestaurants'>
         {this.props.isAdmin && (
           <Fragment>
             <button
             type="submit"
               href='/'
               onClick={this.handleRestaurantEdit}
-              className='product-edit-icon'
             >
               Edit
             </button>
@@ -49,7 +49,7 @@ export default class RestaurantEdit extends Component {
           </Fragment>
         )}
         {this.state.isEditMode ? (
-          <div>
+          <div id='updateRestaurants'>
             <p>Edit Restaurant Hours</p>
             <input
               className='input is-medium'

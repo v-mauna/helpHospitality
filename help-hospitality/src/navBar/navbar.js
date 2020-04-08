@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 import { Auth } from 'aws-amplify'
 
 export default class Navbar extends React.Component {
-  constructor(props){
+  constructor (props) {
     super(props)
-    this.handleLogout = this.handleLogout.bind(this);
+    this.handleLogout = this.handleLogout.bind(this)
   }
   handleLogout = async event => {
     event.preventDefault()
@@ -20,7 +20,6 @@ export default class Navbar extends React.Component {
     }
   }
   render () {
-    
     return (
       <nav id='main-navigation'>
         <link
@@ -53,11 +52,7 @@ export default class Navbar extends React.Component {
             )}
             {this.props.auth.isAuthenticated && (
               <Fragment>
-                <Link
-                  id='link'
-                  to='/profile'
-                  className='max-screen'
-                >
+                <Link id='link' to='/profile' className='max-screen'>
                   Profile
                 </Link>
                 <Link
@@ -84,12 +79,30 @@ export default class Navbar extends React.Component {
               <NavLink smooth to='/resources' className='min-screen'>
                 Resources
               </NavLink>
-              <NavLink smooth to='/signup' className='min-screen'>
-                Signup
-              </NavLink>
-              <NavLink smooth to='/login' className='min-screen'>
-                Login
-              </NavLink>
+              {this.props.auth.isAuthenticated && (
+                <Fragment className='dropdown-content'>
+                  <NavLink to='/profile' className='min-screen'>
+                    Profile
+                  </NavLink>
+                  <NavLink
+                    to='/login'
+                    onClick={this.handleLogout}
+                    className='min-screen'
+                  >
+                    Log out
+                  </NavLink>
+                </Fragment>
+              )}
+              {!this.props.auth.isAuthenticated && (
+                <Fragment className='dropdown-content'>
+                  <NavLink smooth to='/signup' className='min-screen'>
+                    Signup
+                  </NavLink>
+                  <NavLink smooth to='/login' className='min-screen'>
+                    Login
+                  </NavLink>
+                </Fragment>
+              )}
             </div>
           </div>
         </div>
