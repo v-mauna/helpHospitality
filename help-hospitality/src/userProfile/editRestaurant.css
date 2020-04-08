@@ -1,0 +1,20 @@
+.updateRestaurants {
+  justify-content: center;
+  background-color: black;
+  color: white;
+  padding: 2em;
+  width: fit-content;
+  height: fit-content;
+  text-align: left;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  font-size: 12px;
+}
+#editRestaurantBtn {
+  margin-right: 1em !important;
+}
+#editInputBox {
+  width: 120px;
+}

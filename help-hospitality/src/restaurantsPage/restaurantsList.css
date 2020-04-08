@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Spartan&family=Spinnaker&display=swap');
 
 .restaurants {
-	font-size: 20px;
 	display: block;
 	font-family: 'Spinnaker', sans-serif;
-	font-size: 16px;
 }
 
 .restaurants img {

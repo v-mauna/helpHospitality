@@ -8,7 +8,6 @@ const config = require('../config.json');
 
 export default class Restaurants extends Component {
   state = {
-    newRestaurant: null,
     restaurants: [],
   };
 
@@ -27,7 +26,7 @@ export default class Restaurants extends Component {
   };
 
   render() {
-    const restaurantList = this.state.restaurants.Items;
+    const restaurantList = this.state.restaurants.Items
     console.log('RL', restaurantList);
     if (restaurantList) {
       return (

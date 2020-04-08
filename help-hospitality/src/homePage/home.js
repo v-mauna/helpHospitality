@@ -24,9 +24,9 @@ export default class Home extends React.Component {
             <a href='/signup'>sign up</a> and submit your restaurant's information.
             <br />
             If you're a restaurant worker looking for some help, please check out our list of{' '}
-            <a href='/resources'>resources</a>
+            <a href='/resources'>resources.</a>
             <br/>
-            New York and its people are strong and we will bounce back, united and stronger than before.
+            New York and its people are strong and we will bounce back, united and stronger.
             </p>
         </div>
       </main>

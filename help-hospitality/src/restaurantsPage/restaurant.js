@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './restaurant.css';
 
 export default class Restaurant extends Component {
@@ -39,9 +38,7 @@ export default class Restaurant extends Component {
                 href="/"
                 onClick={this.handleRestaurantEdit}
                 className="product-edit-icon"
-              >
-                <FontAwesomeIcon icon="edit" />
-              </a>
+              />
               <button
               type="submit"
                 onClick={(event) =>
@@ -82,6 +79,8 @@ export default class Restaurant extends Component {
                   <br />
                   Hours: {this.props.hours}
                   <br />
+                  Bio: {this.props.bio}
+                  <br/>
                   Neighborhood: {this.props.neighborhood}
                   <br />
                   Donations Link:{' '}

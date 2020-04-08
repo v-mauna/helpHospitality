@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import './userInfo.css'
+import React, { Component } from 'react'
+import './editRestaurant.css'
 
 export default class RestaurantEdit extends Component {
   constructor (props) {
@@ -29,59 +29,80 @@ export default class RestaurantEdit extends Component {
 
   render () {
     return (
-      <div id='updateRestaurants'>
-        {this.props.isAdmin && (
-          <Fragment>
+      <div className='updateRestaurants'>
+        {this.state.isEditMode ? (
+          <div id='updateRestaurants'>
+            <p>Edit Restaurant Hours</p>
+            <input
+              type='text'
+              id='editInputBox'
+              name='updatedRestaurantHours'
+              placeholder='Enter updated hours'
+              onChange={this.onChange}
+            />
+            <p>Edit Donations Link</p>
+            <input
+              id='editInputBox'
+              type='text'
+              name='updatedDonationsLink'
+              placeholder='Enter donations link'
+              onChange={this.onChange}
+            />
+            <br />
             <button
-            type="submit"
+              type='submit'
+              onClick={this.handleEditSave}
+              id='editRestaurantBtn'
+            >
+              save
+            </button>
+            <button
+              type='submit'
               href='/'
+              id='editRestaurantBtn'
               onClick={this.handleRestaurantEdit}
             >
               Edit
             </button>
             <button
               type='submit'
-              onClick={(event) => this.props.handleDelete(this.props.id, event)}
+              id='editRestaurantBtn'
+              onClick={event => this.props.handleDelete(this.props.id, event)}
               className='delete'
             >
               Delete
             </button>
-          </Fragment>
-        )}
-        {this.state.isEditMode ? (
-          <div id='updateRestaurants'>
-            <p>Edit Restaurant Hours</p>
-            <input
-              className='input is-medium'
-              type='text'
-              name='updatedRestaurantHours'
-              placeholder='Enter updated hours'
-              value={this.state.updatedRestaurantHours}
-              onChange={this.onChange}
-            />
-            <p>Edit Donations Link</p>
-            <input
-              className='input is-medium'
-              type='text'
-              name='updatedDonationsLink'
-              placeholder='Enter donations link'
-              value={this.state.updatedDonationsLink}
-              onChange={this.onChange}
-            />
-            <button
-              type='submit'
-              className='button is-info is-small'
-              onClick={this.handleEditSave}
-            >
-              save
-            </button>
           </div>
         ) : (
           <div>
-            <p className='restaurant-name'>{this.props.name}</p>
-            <p className='restaurant-donations-link'>
-              id: {this.props.donations}
-            </p>
+            <p>Name: {this.props.name}</p>
+            <p>Address: {this.props.address}</p>
+            <p>City: {this.props.city}</p>
+            <p>Neighborhood: {this.props.neighborhood}</p>
+            <p>Hours: {this.props.hours}</p>
+            <p>Bio: {this.props.bio}</p>
+            Donations:{' '}
+                  <a href={`http://wwww.${this.props.donations}`}>
+                    {' '}
+                    {this.props.donations}
+                  </a>
+                  <br/>
+            <button
+              type='submit'
+              href='/'
+              id='editRestaurantBtn'
+              onClick={this.handleRestaurantEdit}
+            >
+              Edit
+            </button>
+            <button
+              type='submit'
+              id='editRestaurantBtn'
+              onClick={event => this.props.handleDelete(this.props.id, event)}
+              className='delete'
+            >
+              Delete
+            </button>
           </div>
         )}
       </div>
