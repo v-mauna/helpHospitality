@@ -8,15 +8,18 @@ import Login from '../src/auth/loginPage/loginPage'
 import Navbar from '../src/navBar/navbar'
 import Footer from '../src/footer/footer'
 import Profile from './userProfile/userInfo'
+import Search from './searchPage/searchPage'
 import ChangePassword from '../src/auth/passwords/changePassword'
 import ChangePasswordConfirm from '../src/auth/passwords/changePasswordConfirm'
 import ForgotPassword from '../src/auth/passwords/forgotPassword'
 import ForgotPasswordVerification from '../src/auth/passwords/forgotPasswordVerification'
 import ErrorPage from '../src/errorPage/errorPage'
+import {Auth} from 'aws-amplify'
 
 class Routes extends Component {
   state = {
     isAuthenticated: false,
+    isAuthenticating: true,
     user: null,
   }
 
@@ -25,7 +28,22 @@ class Routes extends Component {
   }
 
   setUser = user => {
-    this.setState({ user })
+    this.setState({ user} ) 
+  }
+
+  componentDidMount = async () =>{
+    try {
+      const session = await Auth.currentSession()
+      console.log('Session',session)
+      this.setAuthStatus(true)
+      const user = await Auth.currentAuthenticatedUser()
+      this.setUser(user)
+
+      
+    } catch (error) {
+      console.log('Error authenticating: ',error.message)     
+    }
+    this.setState({isAuthenticating:false})
   }
 
   render () {
@@ -37,6 +55,7 @@ class Routes extends Component {
     }
     console.log('AuthProps', authProps)
     return (
+      !this.state.isAuthenticating &&
       <Router>
         <div />
         <Navbar props={this.props} auth={authProps} />
@@ -58,6 +77,12 @@ class Routes extends Component {
           />
           <Route
             exact
+            path='/search'
+            render={props => <Search {...props} auth={authProps} />}
+          />
+          
+          <Route
+            exact
             path='/signup'
             render={props => <Signup {...props} auth={authProps} />}
           />
@@ -66,7 +91,7 @@ class Routes extends Component {
             path='/login'
             render={props => <Login {...props} auth={authProps} />}
           />
-          { this.state.isAuthenticated && this.state.user ? 
+          { this.state.isAuthenticated && this.state.user ?
           <Route
             exact
             path='/profile'
@@ -81,7 +106,7 @@ class Routes extends Component {
           <Route
             exact
             path='/forgotpasswordverification'
-            component={ForgotPasswordVerification}
+            render={props =><ForgotPasswordVerification {...props} auth={authProps}/>}
           />
           <Route
             exact

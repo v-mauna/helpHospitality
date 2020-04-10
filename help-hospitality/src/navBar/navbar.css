@@ -4,7 +4,6 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   font-family: 'Spinnaker', sans-serif;
-  font-size: 3vw;
   font-weight: bold;
   padding-top: 20px;
   padding-bottom: 15px;
@@ -38,7 +37,7 @@
 .topNav {
   float: right;
   padding: 0% 1% 0% 0%;
-  font-size: 12px;
+  font-size: 10px;
   margin-bottom: 1vh;
   margin-left: 1em;
 }

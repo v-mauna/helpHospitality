@@ -40,6 +40,10 @@ export default class Navbar extends React.Component {
             <Link id='link' to='/resources' className='max-screen'>
               Resources
             </Link>
+            <Link id='link' to='/search' className='max-screen'>
+              Search
+            </Link>
+            
             {!this.props.auth.isAuthenticated && (
               <Fragment>
                 <Link id='link' to='/signup' className='max-screen'>
@@ -79,8 +83,11 @@ export default class Navbar extends React.Component {
               <NavLink smooth to='/resources' className='min-screen'>
                 Resources
               </NavLink>
+              <NavLink smooth to='/search' className='min-screen'>
+                Search
+              </NavLink>
               {this.props.auth.isAuthenticated && (
-                <Fragment className='dropdown-content'>
+                <Fragment>
                   <NavLink to='/profile' className='min-screen'>
                     Profile
                   </NavLink>
@@ -94,7 +101,7 @@ export default class Navbar extends React.Component {
                 </Fragment>
               )}
               {!this.props.auth.isAuthenticated && (
-                <Fragment className='dropdown-content'>
+                <Fragment >
                   <NavLink smooth to='/signup' className='min-screen'>
                     Signup
                   </NavLink>

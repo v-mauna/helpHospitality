@@ -240,7 +240,7 @@ class Profile extends Component {
             <div id='usersRestaurantBlock'>
               <p id='userRestaurantHeader'>Your Restaurants</p>
               <br />
-              {this.state.restaurants.Items.map(restaurant => (
+              {userRestaurants.map(restaurant => (
                 <RestaurantEdit
                   isAdmin={true}
                   handleUpdate={this.handleUpdateRestaurants}
