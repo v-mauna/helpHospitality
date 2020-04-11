@@ -7,16 +7,17 @@
 	top: 50%;
 	display: flex;
 	margin: 2em;
-	text-align: left;
-	height: auto;
-	font-family: 'Spinnaker', sans-serif;
+	text-align: center;
+	height: 200px;
+	width: 300px;
 	text-transform: uppercase;
 	line-height: 10px;
 	background-color: black;
 	color: white;
 	font-size: 12px;
 	line-height: 2em;
-	padding: 1em 2em;
+	padding: 2em;
+	align-self: center;
 }
 a {
 	color: white;

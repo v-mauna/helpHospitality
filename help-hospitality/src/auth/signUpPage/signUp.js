@@ -42,7 +42,8 @@ class Signup extends React.Component {
     event.preventDefault();
     // Form validation
     this.clearErrorState();
-    const { email, password, username, firstName, lastName } = this.state;
+    let { email, password, username, firstName, lastName } = this.state;
+    username = username.toLowerCase()
     try {
       const signUpResponse = await Auth.signUp({
         username,

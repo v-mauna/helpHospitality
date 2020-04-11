@@ -3,6 +3,7 @@ import axios from 'axios'
 import RestaurantEdit from './editRestaurant'
 import Front from '../images/restaurantFront.jpg'
 import './userInfo.css'
+import {replaceSpaces} from '../helperFunctions'
 
 const config = require('../config.json')
 const initialNewRestaurant = {
@@ -14,6 +15,7 @@ const initialNewRestaurant = {
   donations: '',
   neighborhood: '',
 }
+
 
 class Profile extends Component {
   constructor (props) {
@@ -42,7 +44,7 @@ class Profile extends Component {
     event.preventDefault()
     //call to AWS API Gateway add restaurant endpoint here
     try {
-      const {
+      let {
         name,
         address,
         city,
@@ -51,7 +53,8 @@ class Profile extends Component {
         donations,
         neighborhood,
       } = this.state.newRestaurant
-      const id = name
+      const id = replaceSpaces(name)
+      neighborhood = replaceSpaces(neighborhood)
       const username = this.state.user
       const params = {
         id,
@@ -64,7 +67,6 @@ class Profile extends Component {
         neighborhood,
         username: username,
       }
-      console.log('Add params', params)
       await axios.post(`${config.api.invokeUrl}/restaurants/${id}`, params)
       await this.fetchUserRestaurants()
       this.setState({ newRestaurant: initialNewRestaurant })
@@ -74,10 +76,11 @@ class Profile extends Component {
     await this.fetchUserRestaurants()
   }
   handleUpdateRestaurants = async (name, hours, donations) => {
+    const id = name.replace(/ /g, "-")
     // call to AWS API Gateway update restaurant endpoint here
     try {
       const params = {
-        id: name,
+        id,
         hours: hours,
         donations: donations,
       }
@@ -127,7 +130,7 @@ class Profile extends Component {
     this.setState({
       newRestaurant: {
         ...this.state.newRestaurant,
-        [event.target.name]: event.target.value,
+        [event.target.name]: event.target.value.toLowerCase(),
       },
     })
     console.log('NR', this.state.newRestaurant)

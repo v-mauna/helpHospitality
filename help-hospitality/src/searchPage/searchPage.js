@@ -3,25 +3,17 @@ import axios from 'axios'
 import './searchPage.css'
 import Espresso from '../images/espresso.jpg'
 import Restaurant from '../restaurantsPage/restaurant'
+import { replaceSpaces } from '../helperFunctions'
 
 const config = require('../config.json')
 
-const search = term => {
-  term = term.toLowerCase()
-  return function (restaurant) {
-    return (
-      restaurant.name.toLowerCase().includes(term) ||
-      restaurant.neighborhood.toLowerCase().includes(term) ||
-      !term
-    )
-  }
-}
 export default class SearchPage extends Component {
   constructor () {
     super()
     this.state = {
       restaurants: [],
       searchValue: '',
+      errorMessage: '',
     }
     this.handleChange = this.handleChange.bind(this)
     this.fetchRestaurants = this.fetchRestaurants.bind(this)
@@ -30,23 +22,30 @@ export default class SearchPage extends Component {
 
   fetchRestaurants = async () => {
     const apiUrl = config.api.invokeUrl
-    const value = this.state.searchValue
+    let value = this.state.searchValue.toLowerCase()
+    let errorMsg = this.state.errorMessage
+    value = replaceSpaces(value)
+    console.log('value', value)
     try {
       const response = await axios.get(`${apiUrl}/search/${value}`)
-      this.setState({ restaurants: response.data })
-      this.setState({searchValue: ''})
+      console.log('res', response)
+      if (response.data.Items.length > 0) {
+        this.setState({ restaurants: response.data })
+        this.setState({ searchValue: '' })
+      } else {
+        errorMsg = 'Sorry but we could not locate any restaurants.'
+        document.getElementById('search-error-msg').innerHTML = errorMsg
+      }
     } catch (error) {
-      console.log('Your error is:', error)
+      console.log('Your error is:', error.message)
     }
   }
 
   handleChange = event => {
     event.preventDefault()
-    this.setState({restaurants: []})
     const searchValue = event.target.value
-
-    this.setState({ searchValue: searchValue })
-    console.log('State', this.searchValue)
+    console.log('sv', searchValue)
+    this.setState({ searchValue })
   }
 
   handleSubmit = () => {
@@ -59,19 +58,25 @@ export default class SearchPage extends Component {
     if (!restaurantList) {
       return (
         <article>
-          <div className='restaurants'>
+          <div className='search'>
             <img src={Espresso} alt='Espresso Machine' />
-            <div id='restaurants'>
-              <p id='text'>
+            <div id='results'>
+              <p >
                 {' '}
                 You can search through our list of restaurants by name or by
                 neighborhood.
               </p>
-              <input onChange={this.handleChange} type='text' value={searchValue} placeholder='Search' />
+              <input
+                onChange={this.handleChange}
+                type='text'
+                value={searchValue}
+                placeholder='Search'
+              />
               <br />
               <button type='submit' onClick={this.handleSubmit}>
                 Search
               </button>
+              <p id='search-error-msg'></p>
             </div>
           </div>
         </article>
@@ -79,37 +84,42 @@ export default class SearchPage extends Component {
     }
     return (
       <article>
-        <div className='restaurants'>
+        <div className='search'>
           <img src={Espresso} alt='Espresso Machine' />
-          <div id='restaurants'>
+          <div id='results'>
             <p id='text'>
               {' '}
               You can search through our list of restaurants by name or by
               neighborhood.
             </p>
-            <input type='text' value={searchValue} onChange={this.handleChange} placeholder='Search' />
+            <input
+              type='text'
+              value={searchValue}
+              onChange={this.handleChange}
+              placeholder='Search'
+            />
             <br />
             <button type='submit' onClick={this.handleSubmit}>
               Search
             </button>
-         
-          <div id='searchResultsBlock'>
-            {restaurantList.map(restaurant => (
-              <Restaurant
-                isAdmin={false}
-                name={restaurant.name}
-                hours={restaurant.hours}
-                donations={restaurant.donations}
-                bio={restaurant.bio}
-                neighborhood={restaurant.neighborhood}
-                address={restaurant.address}
-                city={restaurant.city}
-                id={restaurant.id}
-                key={restaurant.id}
-              />
-            ))}
+
+            <div id='searchResultsBlock'>
+              {restaurantList.map(restaurant => (
+                <Restaurant
+                  isAdmin={false}
+                  name={restaurant.name}
+                  hours={restaurant.hours}
+                  donations={restaurant.donations}
+                  bio={restaurant.bio}
+                  neighborhood={restaurant.neighborhood}
+                  address={restaurant.address}
+                  city={restaurant.city}
+                  id={restaurant.id}
+                  key={restaurant.id}
+                />
+              ))}
+            </div>
           </div>
-        </div>
         </div>
       </article>
     )
