@@ -6,7 +6,7 @@ import Resources from '../src/resourcesPage/resources'
 import Signup from '../src/auth/signUpPage/signUp'
 import Login from '../src/auth/loginPage/loginPage'
 import Navbar from '../src/navBar/navbar'
-import Footer from '../src/footer/footer'
+
 import Profile from './userProfile/userInfo'
 import Search from './searchPage/searchPage'
 import ChangePassword from '../src/auth/passwords/changePassword'
@@ -53,7 +53,6 @@ class Routes extends Component {
       setAuthStatus: this.setAuthStatus,
       setUser: this.setUser,
     }
-    console.log('AuthProps', authProps)
     return (
       !this.state.isAuthenticating &&
       <Router>

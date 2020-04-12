@@ -4,18 +4,18 @@
     font-size: 20px;
     display: block;
     align-items: center;
-    height: 100%;
+    height:auto;
+    margin-bottom: 100%;
 }
 
 .resources img{
     width:100%;
-    padding-top: 1em;
 }
 
 #resources{
     position: absolute;
     margin-top: 16px;
-    height: 100vh;
+    height: auto;
     font-weight: 400;
     margin-left: 1em;
     line-height: 30px;

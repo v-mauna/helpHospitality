@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Spartan&family=Spinnaker&display=swap');
 
 .search {
-	display: block;
+    display: block;
+    margin-bottom: 50%;
 }
 
 .search img {
@@ -12,17 +13,15 @@
 #results {
 	position: absolute;
     text-align: center;
-    transform: translate(0%, -100%);
 	width: 100vw;
 	font-weight: 700;
-    height: 119vh;
+    height: auto;
+	display: block;
     box-sizing: border-box;
-    font-family: 'Spinnaker', sans-serif;
     padding: 2em 3em ;
     line-height: 20px;
-    background-color: rgba(0,0,0,0.6);
-    color:white;
-    font-size: 16px;
+    color:black;
+    font-size: 14px;
     text-transform: uppercase;
 }
 
@@ -33,6 +32,7 @@ button{
 }
 #searchResultsBlock{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+	flex-direction: flex-start;
+	flex: 1;
+	flex-wrap: wrap;
 }

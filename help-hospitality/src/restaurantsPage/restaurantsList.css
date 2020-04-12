@@ -2,6 +2,7 @@
 
 .restaurants {
 	display: block;
+	margin-bottom: auto;
 }
 
 .restaurants img {
@@ -10,13 +11,13 @@
 }
 
 #restaurants {
-	position: absolute;
 	margin-top: 1em;
 	margin-left: 1em;
-    height: 100vh;
+    height: auto;
 	font-weight: 600;
 	line-height: 20px;
 	color: black;
+	display: block;
 	font-size: 14px;
 	text-align: center;
 	align-items: left;
@@ -24,7 +25,8 @@
 }
 
 #restaurantBlock{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+	display: flex;
+	flex-direction: flex-start;
+	flex: 1;
+	flex-wrap: wrap;
 }

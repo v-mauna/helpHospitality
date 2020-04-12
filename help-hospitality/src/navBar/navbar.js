@@ -73,6 +73,7 @@ export default class Navbar extends React.Component {
 
           <div className='dropNav'>
             <i className='fa fa-align-justify' id='dropbtn' />
+            Help Hospitality
             <div className='dropdown-content'>
               <NavLink smooth to='/' className='min-screen'>
                 Home
