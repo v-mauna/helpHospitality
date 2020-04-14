@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Spartan&family=Spinnaker&display=swap');
+
+.singleRestaurant {
+	display: block;
+    align-items: center;
+	height:auto;
+	justify-content: center;
+    margin-bottom: auto;
+	width: 100vw;
+	background-image: url('../images/citySketch.jpg');
+	background-position: top;
+	background-size: stretch;
+	
+}
+
+
+#singleRestaurantText{
+	margin-top: 1em;
+	margin-left: 1em;
+    height: auto;
+	font-weight: 600;
+	line-height: 20px;
+	color: black;
+	display: block;
+	font-size: 14px;
+	text-align: center;
+	align-items: left;
+	align-content: left;
+}
+
+#singleRestaurantInfo{
+	display: flex;
+	flex-direction: flex-start;
+	flex: 1;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+#singleRestaurant {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	
+
+}
+#singleRestaurantText {
+	top: 50%;
+	display: flex;
+	margin: 2em;
+	text-align: center;
+	height: auto;
+	width: 300px;
+	text-transform: uppercase;
+	line-height: 10px;
+	background: linear-gradient(25deg, blue,green,yellow);
+	opacity: .9;
+	color: white;
+	font-size: 14px;
+	font-family: 'Spinnaker', sans-serif;
+	line-height: 2em;
+	padding: 2em 2em 1.5em 2em;
+	align-self: center;
+}
+a {
+	color: white;
+}
+a:hover {
+	color: red;
+}

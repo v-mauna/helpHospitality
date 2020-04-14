@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Spartan&family=Spinnaker&display=swap');
+
+.aboutPage {
+	display: block;
+    align-items: center;
+	height:auto;
+	justify-content: center;
+    margin-bottom: auto;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/passion.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+#aboutPageText {
+  margin-top: 1em;
+  margin-left: 1em;
+  font-weight: 600;
+  line-height: 20px;
+  color: white;
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  align-items: left;
+  align-content: left;
+}

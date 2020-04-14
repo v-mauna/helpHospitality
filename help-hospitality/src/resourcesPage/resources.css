@@ -4,8 +4,9 @@
     font-size: 20px;
     display: block;
     align-items: center;
-    height:auto;
-    margin-bottom: 100%;
+	height:auto;
+	justify-content: center;
+    margin-bottom: auto;
 }
 
 .resources img{
@@ -13,16 +14,21 @@
 }
 
 #resources{
-    position: absolute;
-    margin-top: 16px;
+    margin-top: 1em;
+	margin-left: 1em;
     height: auto;
-    font-weight: 400;
-    margin-left: 1em;
-    line-height: 30px;
-    opacity: 0.9;
-    color:black;
-    font-size: 16px;
-    text-align: left;
-    font-family: 'Spinnaker', sans-serif;
+	font-weight: 600;
+	line-height: 20px;
+	color: black;
+	display: block;
+	font-size: 14px;
+	text-align: center;
+	align-items: left;
+	align-content: left;
 
+}
+#resourcesBlock{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 }

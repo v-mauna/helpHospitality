@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Damion|Great+Vibes|Pathway+Gothic+One|Paytone+One|Spinnaker&display=swap');
-
 .navBar {
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -11,82 +10,77 @@
   width: 100%;
   font-family: 'Spinnaker', sans-serif;
 }
-
 #link {
   color: black;
   text-decoration: none;
   margin-left: 1em;
 }
 
-#greeting {
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: bold;
-  position: absolute;
-  text-align: left;
-  margin-left: 1em;
-  margin-bottom: 2em;
-}
-
-#greeting {
-  display: flex;
-  align-self: flex-start;
-}
-
 .topNav {
   float: right;
-  padding: 0% 1% 0% 0%;
-  font-size: 12px;
-  margin-bottom: 1vh;
-  margin-left: 1em;
+  padding: 0% 5% 0% 0%;
+  font-size: 13px;
+}
+
+.navBar a:hover {
+  color: white;
 }
 
 .dropNav {
   float: left;
+  margin-left: 2vw;
+  overflow: hidden;
   display: none;
-  margin-right: 3vw;
-  color: black;
+  margin-right: 2vw;
 }
 
 #dropbtn {
   background-color: transparent;
-  font-size: 20px;
-  margin: 0 1em 5px;
+  font-size: 25px;
+  margin-right: 1vw;
 }
 
 .dropdown-content {
-  display: block;
+  display: none;
   position: absolute;
+  background-color: transparent;
   min-width: 160px;
   z-index: 1;
-  text-align: right;
+  color: white;
+  text-align: left;
 }
 
 .dropNav:hover .dropdown-content {
   display: block;
-  margin-left: -200px;
+  margin-left: 1vw;
   color: white;
 }
 
 .min-screen {
+  float: none;
   color: white;
   font-weight: normal;
-  padding: 1em;
+  background-color: black;
+  padding: 5px 0px;
   text-decoration: none;
   display: block;
   text-align: left;
   font-size: 13px;
-  background-color: black;
-
 }
+
+a:link, a:visited, a:active {
+  color:white;
+  text-decoration: none;
+}
+
 
 @media screen and (max-width: 800px) {
-
-  .topNav {
-    display: none;
+  .dropNav {
+      display: block;
   }
-
-  .dropNav{
-    display: block;
+  
+  .topNav {
+      display: none;
   }
 }
+

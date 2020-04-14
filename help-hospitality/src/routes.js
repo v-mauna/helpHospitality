@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import Home from '../src/homePage/home'
+import AboutPage from '../src/aboutPage/aboutPage'
 import Restaurants from '../src/restaurantsPage/restaurantsList'
+import Restaurant from '../src/restaurantsPage/singleRestaurant'
 import Resources from '../src/resourcesPage/resources'
 import Signup from '../src/auth/signUpPage/signUp'
 import Login from '../src/auth/loginPage/loginPage'
 import Navbar from '../src/navBar/navbar'
-
 import Profile from './userProfile/userInfo'
 import Search from './searchPage/searchPage'
 import ChangePassword from '../src/auth/passwords/changePassword'
@@ -71,8 +72,18 @@ class Routes extends Component {
           />
           <Route
             exact
+            path='/about'
+            render={props => <AboutPage  {...props} auth={authProps} />}
+          />
+          <Route
+            exact
             path='/restaurants'
             render={props => <Restaurants {...props} auth={authProps} />}
+          />
+          <Route
+            exact
+            path='/restaurants/:name'
+            render={props => <Restaurant {...props} auth={authProps} />}
           />
           <Route
             exact

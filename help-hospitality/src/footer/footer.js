@@ -12,7 +12,64 @@ const Footer = () => (
       <span id='subtext'>© SYNCR</span>
       <br />
     </div>
-    <ul className='footerNav'>
+    <div className="exploreNav">
+    <ul>
+      <li className='navItem'>
+        Explore
+        <ul className='nav-ul'>
+        <li>
+            <a
+              id='footerLinks'
+              href='/about'
+              rel='noopener noreferrer'
+            >
+              about
+            </a>
+          </li>
+          <li>
+            <a
+              id='footerLinks'
+              href='/restaurants'
+              rel='noopener noreferrer'
+            >
+              restaurants
+            </a>
+          </li>
+          <li>
+            <a
+              id='footerLinks'
+              href='/resources'
+              rel='noopener noreferrer'
+            >
+              resources
+            </a>
+          </li> 
+          <li>
+            <a
+              id='footerLinks'
+              href='/signup'
+              rel='noopener noreferrer'
+            >
+              signup
+            </a>
+          </li>
+          <li>
+            <a
+              id='footerLinks'
+              href='/login'
+              rel='noopener noreferrer'
+            >
+              Your Account
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    </div>
+    <br/>
+    
+    <div className='contactNav'>
+    <ul >
       <li className='navItem'>
         Contact
         <ul className='nav-ul'>
@@ -26,69 +83,24 @@ const Footer = () => (
             hey@snycr.com
             </a>
           </li>
-          Thank you for visiting.
-
+          <li>
+            <a
+              id='footerLinks'
+              href='www.linkedin.com/in/v-mauna'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+            LinkedIn
+            </a>
+          </li>
+          <li>
+          Thanks for stopping by
+          </li>
         </ul>
       </li>
       
     </ul>
-    <ul className='exploreNav'>
-      <li className='navItem'>
-        Explore
-        <ul className='nav-ul'>
-        <li>
-            <a
-              id='footerLinks'
-              href='/about'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              about
-            </a>
-          </li>
-          <li>
-            <a
-              id='footerLinks'
-              href='/restaurants'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              restaurants
-            </a>
-          </li>
-          <li>
-            <a
-              id='footerLinks'
-              href='/resources'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              resources
-            </a>
-          </li> 
-          <li>
-            <a
-              id='footerLinks'
-              href='/signup'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              signup
-            </a>
-          </li>
-          <li>
-            <a
-              id='footerLinks'
-              href='/login'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Your Account
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    </div>
   </footer>
 )
 

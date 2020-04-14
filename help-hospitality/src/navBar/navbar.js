@@ -28,10 +28,7 @@ export default class Navbar extends React.Component {
         />
         <div className='navBar' id='myHeader'>
           <div className='topNav'>
-            {/* {this.props.auth.isAuthenticated && this.props.auth.user && (
-              <Fragment id="greeting">Welcome,{this.props.auth.user.attributes.name}</Fragment>
-            )} */}
-            <Link id='link' offset={-70} duration={500} to='/'>
+            <Link id='link' duration={500} to='/'>
               Home
             </Link>{' '}
             <Link id='link' to='/restaurants' className='max-screen'>
@@ -43,7 +40,6 @@ export default class Navbar extends React.Component {
             <Link id='link' to='/search' className='max-screen'>
               Search
             </Link>
-            
             {!this.props.auth.isAuthenticated && (
               <Fragment>
                 <Link id='link' to='/signup' className='max-screen'>
@@ -73,7 +69,7 @@ export default class Navbar extends React.Component {
 
           <div className='dropNav'>
             <i className='fa fa-align-justify' id='dropbtn' />
-            Help Hospitality
+            SNYCR
             <div className='dropdown-content'>
               <NavLink smooth to='/' className='min-screen'>
                 Home

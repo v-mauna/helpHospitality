@@ -69,6 +69,7 @@ export default class Restaurant extends Component {
             </div>
           ) : (
             <div id="restaurant">
+              <a href={`/restaurants/${this.props.name}`}>
               <div className="restaurantInfo">
                 <p>
                   Name: {this.props.name}
@@ -90,6 +91,7 @@ export default class Restaurant extends Component {
                   </a>
                 </p>
               </div>
+              </a>
             </div>
           )}
         </div>
