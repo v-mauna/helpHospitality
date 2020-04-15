@@ -8,7 +8,7 @@
   padding-bottom: 15px;
   position: relative;
   width: 100%;
-  font-family: 'Spinnaker', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 #link {
   color: black;
@@ -18,12 +18,13 @@
 
 .topNav {
   float: right;
-  padding: 0% 5% 0% 0%;
+  padding: 0% 2% 0% 0%;
   font-size: 13px;
 }
 
-.navBar a:hover {
-  color: white;
+#link:hover {
+  color: red;
+  font-style: italic;
 }
 
 .dropNav {

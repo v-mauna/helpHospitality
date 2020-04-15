@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Spartan&family=Spinnaker&display=swap');
 
 .userProfile{
-	display: block;
-	font-family: 'Spinnaker', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-content: left;
+  font-family: 'Spinnaker', sans-serif;
+  margin-bottom: auto;
 }
 
 .userProfile img {
@@ -11,31 +15,35 @@
 }
 
 #addRestaurantForm{
-	position: absolute;
-	margin-top: 1em;
-	margin-left: 2em;
-    height: 100vh;
-	font-weight: 400;
+  margin-top: 1em;
+  margin-left: 10%;
+  height: auto;
+	font-weight: 600;
 	line-height: 20px;
 	color: black;
+	display: block;
 	font-size: 16px;
-	text-align: center;
-	justify-content: center;
+	font-family: 'Lato',sans-serif;
+	text-align: left;
+	align-items: left;
+	align-content: left;
 }
+#profileText {
+ padding-bottom: 20px;
+}
+
 #addRestaurantForm h3{
   text-transform: uppercase;
 }
 
-#profileText {
-  margin-bottom: 2em;
-}
+
 #userProfileSpan{
   font-size: 10px;
   
 }
 #userRestaurantHeader{
   margin: 0 1em;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
 }
 #usersRestaurantBlock{
@@ -49,7 +57,6 @@
 }
 
 #bioBox{
-  margin-top: 1em;
   width: 200px;
-  height: 200px;
+  height: auto;
 }

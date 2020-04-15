@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
 import './editRestaurant.css'
+import { replaceHyphens } from '../helperFunctions'
 
 export default class RestaurantEdit extends Component {
   constructor (props) {
     super(props)
     this.state = {
       isEditMode: false,
-      updatedRestaurantHours: this.props.hours,
-      updatedDonationsLink: this.props.donations,
+      hours: this.props.hours,
+      donations: this.props.donations,
+      website: this.props.website,
+      name: this.props.name,
+      address: this.props.address,
+      city: this.props.city,
+      neighborhood: this.props.neighborhood,
+      bio: this.props.bio,
+      id: this.props.id,
+      username: this.props.username
     }
     this.handleRestaurantEdit = this.handleRestaurantEdit.bind(this)
   }
@@ -17,17 +26,40 @@ export default class RestaurantEdit extends Component {
     this.setState({ isEditMode: true })
   }
 
-  handleEditSave = event => {
+  handleEditSave = async event => {
     event.preventDefault()
     this.setState({ isEditMode: false })
-    const updatedHours = this.state.updatedRestaurantHours
-    const updatedDonationsLink = this.state.updatedDonationsLink
-    this.props.handleUpdate(this.props.id, updatedHours, updatedDonationsLink)
+    let {
+      hours,
+      website,
+      donations,
+      bio,
+      name,
+      city,
+      address,
+      id,
+      neighborhood,
+      username
+    } = this.state
+    let params = {
+      website,
+      hours,donations,
+      bio,
+      name,
+      city,
+      address,
+      neighborhood,
+      id,
+      username
+    }
+    console.log('pARAMS',params)
+    await this.props.handleUpdate(params)
   }
 
   onChange = event => this.setState({ [event.target.name]: event.target.value })
 
   render () {
+    console.log('State',this.state)
     return (
       <div className='updateRestaurants'>
         {this.state.isEditMode ? (
@@ -36,7 +68,8 @@ export default class RestaurantEdit extends Component {
             <input
               type='text'
               id='editInputBox'
-              name='updatedRestaurantHours'
+              value={this.props.hours}
+              name='hours'
               placeholder='Enter updated hours'
               onChange={this.onChange}
             />
@@ -44,8 +77,18 @@ export default class RestaurantEdit extends Component {
             <input
               id='editInputBox'
               type='text'
-              name='updatedDonationsLink'
+              value={this.props.donations}
+              name='donations'
               placeholder='Enter donations link'
+              onChange={this.onChange}
+            />
+            <p>Edit Website Link</p>
+            <input
+              id='editInputBox'
+              type='text'
+              name='website'
+              placeholder='Enter updated website information'
+              value={this.props.website}
               onChange={this.onChange}
             />
             <br />
@@ -75,18 +118,25 @@ export default class RestaurantEdit extends Component {
           </div>
         ) : (
           <div>
-            <p>Name: {this.props.name}</p>
+            <p>Name: {replaceHyphens(this.props.name)}</p>
             <p>Address: {this.props.address}</p>
             <p>City: {this.props.city}</p>
-            <p>Neighborhood: {this.props.neighborhood}</p>
+            <p>Neighborhood: {replaceHyphens(this.props.neighborhood)}</p>
             <p>Hours: {this.props.hours}</p>
             <p>Bio: {this.props.bio}</p>
+            <p>
+              Website:
+              <a href={`http://wwww.${this.props.donations}`}>
+                {' '}
+                {this.props.website}
+              </a>
+            </p>
             Donations:{' '}
-                  <a href={`http://wwww.${this.props.donations}`}>
-                    {' '}
-                    {this.props.donations}
-                  </a>
-                  <br/>
+            <a href={`http://wwww.${this.props.donations}`}>
+              {' '}
+              {this.props.donations}
+            </a>
+            <br />
             <button
               type='submit'
               href='/'

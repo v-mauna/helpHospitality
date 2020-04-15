@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import './restaurant.css';
+import {replaceHyphens} from '../helperFunctions'
 
 export default class Restaurant extends Component {
   state = {
@@ -80,13 +81,16 @@ export default class Restaurant extends Component {
                   <br />
                   Hours: {this.props.hours}
                   <br />
+                  Website: <a target="_blank" rel="noopener noreferrer" href={`http://wwww.${this.props.website}`}>
+                  {this.props.website}
+                  </a>
+                  <br />
                   Bio: {this.props.bio}
                   <br/>
                   Neighborhood: {this.props.neighborhood}
                   <br />
                   Donations Link:{' '}
-                  <a href={`http://wwww.${this.props.donations}`}>
-                    {' '}
+                  <a target="_blank" rel="noopener noreferrer" href={`http://wwww.${this.props.donations}`}>
                     {this.props.donations}
                   </a>
                 </p>

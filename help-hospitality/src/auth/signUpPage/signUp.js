@@ -20,6 +20,18 @@ class Signup extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.clearErrorState = this.clearErrorState.bind(this)
+  }
+  showForm = action => {
+    let hiddenForm
+
+    action === 'login'
+      ? (hiddenForm = document.getElementById('login-form'))
+      : (hiddenForm = document.getElementById('signup-form'))
+
+    hiddenForm.style.display === 'block'
+      ? (hiddenForm.style.display = 'none')
+      : (hiddenForm.style.display = 'block')
   }
 
   clearErrorState = () => {
@@ -54,7 +66,7 @@ class Signup extends React.Component {
           email,
         },
       });
-      this.props.history.push('/restaurants');
+      this.props.history.push('/login');
       console.log(signUpResponse);
     } catch (error) {
       let err = null;
@@ -67,6 +79,7 @@ class Signup extends React.Component {
       });
       console.log('err', err);
     }
+    
   };
 
   render() {

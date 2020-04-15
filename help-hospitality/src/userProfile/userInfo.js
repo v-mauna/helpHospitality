@@ -3,7 +3,7 @@ import axios from 'axios'
 import RestaurantEdit from './editRestaurant'
 import Front from '../images/restaurantFront.jpg'
 import './userInfo.css'
-import {replaceSpaces} from '../helperFunctions'
+import {replaceSpaces, greeting} from '../helperFunctions'
 
 const config = require('../config.json')
 const initialNewRestaurant = {
@@ -14,6 +14,7 @@ const initialNewRestaurant = {
   bio: '',
   donations: '',
   neighborhood: '',
+  website: '',
 }
 
 
@@ -29,6 +30,7 @@ class Profile extends Component {
         bio: '',
         donations: '',
         neighborhood: '',
+        website:''
       },
       restaurants: [],
       user: this.props.auth.user.username,
@@ -52,6 +54,7 @@ class Profile extends Component {
         bio,
         donations,
         neighborhood,
+        website
       } = this.state.newRestaurant
       const id = replaceSpaces(name)
       neighborhood = replaceSpaces(neighborhood)
@@ -65,6 +68,7 @@ class Profile extends Component {
         bio,
         donations,
         neighborhood,
+        website,
         username: username,
       }
       await axios.post(`${config.api.invokeUrl}/restaurants/${id}`, params)
@@ -75,32 +79,17 @@ class Profile extends Component {
     }
     await this.fetchUserRestaurants()
   }
-  handleUpdateRestaurants = async (name, hours, donations) => {
-    const id = name.replace(/ /g, "-")
-    // call to AWS API Gateway update restaurant endpoint here
+  handleUpdateRestaurants = async params => {
+    //call to AWS API Gateway add restaurant endpoint here
     try {
-      const params = {
-        id,
-        hours: hours,
-        donations: donations,
-      }
-      await axios.patch(`${config.api.invokeUrl}/restaurants/${name}`, params)
-      const restaurantToUpdate = [...this.state.restaurants.Items].find(
-        restaurant => restaurant.id === name
-      )
-      const updatedRestaurants = [this.prevState.restaurants.Items].filter(
-        restaurant => restaurant.id !== name
-      )
-      restaurantToUpdate.name = name
-      restaurantToUpdate.donations = donations
-      restaurantToUpdate.hours = hours
-      updatedRestaurants.push(restaurantToUpdate)
-      this.setState({ restaurants: updatedRestaurants })
+      let updatedRestaurant = await axios.put(`${config.api.invokeUrl}/restaurants/${params.id}`, params)
+      console.log('UR data', updatedRestaurant.data)
+      await this.fetchUserRestaurants()
     } catch (err) {
-      console.log(`Error updating restaurant: ${err}`)
+      console.log(`An error has occurred: ${err}`)
     }
+    await this.fetchUserRestaurants()
   }
-
   handleDeleteRestaurant = async (id, event) => {
     event.preventDefault()
     // add call to AWS API Gateway delete product endpoint here
@@ -118,7 +107,6 @@ class Profile extends Component {
     try {
       const username = this.state.user
       const res = await axios.get(`${config.api.invokeUrl}/user/${username}`)
-      console.log('Fetch user response.data', res.data)
       this.setState({ restaurants: res.data })
     } catch (err) {
       console.log(`An error has occurred: ${err}`)
@@ -133,7 +121,6 @@ class Profile extends Component {
         [event.target.name]: event.target.value.toLowerCase(),
       },
     })
-    console.log('NR', this.state.newRestaurant)
   }
 
   componentDidMount = () => {
@@ -142,8 +129,7 @@ class Profile extends Component {
   render () {
     const newRestaurant = this.state.newRestaurant
     const userRestaurants = this.state.restaurants.Items
-    console.log('Profile State restaurants', userRestaurants)
-    if (userRestaurants) {
+    if (userRestaurants && userRestaurants.length > 0) {
       return (
         <article>
           <div className='userProfile'>
@@ -152,7 +138,9 @@ class Profile extends Component {
               <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                 <br />
                 <p id='profileText'>
-                  <h4>Use the form below to add your restaurant:</h4> <br />
+                  {greeting()}  Please use the form below to submit your restaurant information.
+                  </p>
+                  <p>
                   Name
                   <br />
                   <input
@@ -197,7 +185,7 @@ class Profile extends Component {
                     type='text'
                   />
                   <br />
-                  Operating Hours(if applicable):
+                  Operating Hours (if applicable):
                   <br />
                   <input
                     id='restaurantInputBox'
@@ -216,6 +204,17 @@ class Profile extends Component {
                     onChange={this.handleChange}
                     name='bio'
                     placeholder='Restaurant bio'
+                    type='text'
+                  />
+                  <br />
+                  Website
+                  <br />
+                  <input
+                    id='restaurantInputBox'
+                    value={newRestaurant.website}
+                    onChange={this.handleChange}
+                    name='website'
+                    placeholder='Restaurant website'
                     type='text'
                   />
                   <br />
@@ -256,7 +255,9 @@ class Profile extends Component {
                   address={restaurant.address}
                   city={restaurant.city}
                   id={restaurant.id}
+                  website={restaurant.website}
                   key={restaurant.id}
+                  username={restaurant.username}
                 />
               ))}
             </div>
@@ -267,13 +268,16 @@ class Profile extends Component {
     }
     return (
       <article>
-        div className='userProfile'>
+        <div className='userProfile'>
         <img id='profileImg' src={Front} alt='Restaurant Front' />
         <div id='addRestaurantForm'>
           <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
             <br />
             <p id='profileText'>
-              Name
+                  {greeting()}  Please use the form below to submit your restaurant information.
+                  </p>
+                  <p>
+                  Name
               <br />
               <input
                 id='restaurantInputBox'
@@ -317,7 +321,7 @@ class Profile extends Component {
                 type='text'
               />
               <br />
-              Operating Hours(if applicable):
+              Operating Hours (if applicable):
               <br />
               <input
                 id='restaurantInputBox'
@@ -331,14 +335,25 @@ class Profile extends Component {
               Bio
               <br />
               <input
-                id='restaurantInputBox'
                 value={newRestaurant.bio}
                 onChange={this.handleChange}
                 name='bio'
+                id='bioBox'
                 placeholder='Restaurant bio'
                 type='text'
               />
               <br />
+              Website
+                  <br />
+                  <input
+                    id='restaurantInputBox'
+                    value={newRestaurant.website}
+                    onChange={this.handleChange}
+                    name='website'
+                    placeholder='Your website'
+                    type='text'
+                  />
+                  <br />
               Donations
               <br />
               <input
@@ -355,6 +370,7 @@ class Profile extends Component {
               Submit
             </button>
           </form>
+        </div>
         </div>
       </article>
     )

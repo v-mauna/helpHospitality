@@ -34,6 +34,7 @@ export default class Restaurants extends Component {
   render () {
     const restaurantList = this.state.restaurants.Items
     if (restaurantList) {
+      console.log('RL', restaurantList)
       return (
         <article>
           <div className='restaurants'>
@@ -42,10 +43,7 @@ export default class Restaurants extends Component {
               <p id='text'>
                 {' '}
                 Our local restaurants need our help. Let's help keep our
-                favorite spaces alive by donating and if they're open, by
-                ordering a meal or two for yourself or maybe for our healthcare
-                workers that are on the frontline and who need all the support
-                they can get.{' '}
+                favorite spaces alive through donating, purchasing gift cards and merchandise, or by ordering our favorite food and drinks. 
               </p>
               <div id='restaurantBlock'>
                 {restaurantList.map(restaurant => (
@@ -59,6 +57,7 @@ export default class Restaurants extends Component {
                     zip={restaurant.zip}
                     bio={restaurant.bio}
                     key={restaurant.id}
+                    website={restaurant.website}
                   />
                 ))}
               </div>
@@ -71,7 +70,7 @@ export default class Restaurants extends Component {
       <div className='restaurants'>
         <div id='kitchen'>
           <img src={Kitchen} alt='Kitchen Open Sign' />
-          <p id='restaurantText'> No restaurants are available at this time.</p>
+          <p id='restaurantText'> We are currently working on adding restaurants to our list.</p>
         </div>
       </div>
     )

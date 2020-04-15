@@ -1,28 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Spartan&family=Spinnaker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spinnaker&family=Lato&display=swap');
 
 .aboutPage {
-	display: block;
-    align-items: center;
-	height:auto;
-	justify-content: center;
-    margin-bottom: auto;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('../images/passion.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+  display: block;
+  align-items: center;
+  height: auto;
+  justify-content: center;
+  margin-bottom: auto;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/passion.jpg');
+  background-size: cover;
+  overflow: hidden;
+  background-repeat: no-repeat;
 }
 
-
 #aboutPageText {
-  margin-top: 1em;
-  margin-left: 1em;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 40px;
+  height: 100vh;
   color: white;
   display: block;
-  font-size: 14px;
-  text-align: center;
-  align-items: left;
+  font-size: 16px;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  background-color: rgba(0, 0, 0, 0.54);
   align-content: left;
+  padding: 12%;
 }

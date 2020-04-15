@@ -3,9 +3,7 @@
 .resources {
     font-size: 20px;
     display: block;
-    align-items: center;
 	height:auto;
-	justify-content: center;
     margin-bottom: auto;
 }
 
@@ -14,7 +12,9 @@
 }
 
 #resources{
-    margin-top: 1em;
+	display: flex; 
+	flex-wrap: wrap;
+	margin-top: 1em;
 	margin-left: 1em;
     height: auto;
 	font-weight: 600;
@@ -22,13 +22,13 @@
 	color: black;
 	display: block;
 	font-size: 14px;
-	text-align: center;
+	text-align: justify;
 	align-items: left;
 	align-content: left;
-
 }
 #resourcesBlock{
 	display: flex;
-	flex-direction: column;
+	flex-direction: flex-start;
+	flex: 1;
 	flex-wrap: wrap;
 }

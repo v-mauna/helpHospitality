@@ -14,20 +14,6 @@
 }
 
 
-#singleRestaurantText{
-	margin-top: 1em;
-	margin-left: 1em;
-    height: auto;
-	font-weight: 600;
-	line-height: 20px;
-	color: black;
-	display: block;
-	font-size: 14px;
-	text-align: center;
-	align-items: left;
-	align-content: left;
-}
-
 #singleRestaurantInfo{
 	display: flex;
 	flex-direction: flex-start;
@@ -51,10 +37,10 @@
 	width: 300px;
 	text-transform: uppercase;
 	line-height: 10px;
-	background: linear-gradient(25deg, blue,green,yellow);
+	background: linear-gradient(90deg,black,yellow);
 	opacity: .9;
 	color: white;
-	font-size: 14px;
+	font-size: 16px;
 	font-family: 'Spinnaker', sans-serif;
 	line-height: 2em;
 	padding: 2em 2em 1.5em 2em;

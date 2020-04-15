@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Spartan&family=Spinnaker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Spinnaker&display=swap');
 
 .restaurants {
 	display: block;
@@ -18,8 +18,9 @@
 	line-height: 20px;
 	color: black;
 	display: block;
-	font-size: 14px;
-	text-align: center;
+	font-size: 16px;
+	font-family: 'Lato',sans-serif;
+	text-align: left;
 	align-items: left;
 	align-content: left;
 }

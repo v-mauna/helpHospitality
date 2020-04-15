@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
 import './loginPage.css';
-import People from '../../images/people.jpg';
+import Pizza from '../../images/pizza.jpg';
 import FormErrors from '../formErrors/formErrors'
 
 class LogIn extends Component {
@@ -72,7 +72,7 @@ class LogIn extends Component {
     return (
       <div className="login">
         <div className="loginForm">
-          <img id="loginImg" src={People} alt="table" />
+          <img id="loginImg" src={Pizza} alt="Pizza" />
           <div id="loginFormText">
             <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
               <br />

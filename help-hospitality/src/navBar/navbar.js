@@ -13,13 +13,16 @@ export default class Navbar extends React.Component {
     event.preventDefault()
     try {
       await Auth.signOut()
+      
       this.props.auth.setAuthStatus(false)
       this.props.auth.setUser(null)
     } catch (error) {
       console.log('Error is:', error.message)
     }
+    window.location.assign('/login')
   }
   render () {
+    console.log('props',this.props)
     return (
       <nav id='main-navigation'>
         <link

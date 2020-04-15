@@ -5,7 +5,7 @@ import Logo from '../images/syncrLogo.png'
 const Footer = () => (
   <footer id='footer'>
     <div id='footerText'>
-      <img id="syncrLogo"src={Logo} alt="SNYCR Logo"/>
+      <a href="/"><img id="syncrLogo"src={Logo} alt="SNYCR Logo"/></a>
       <span id='subtext'>Support NYC Restaurants</span>
       <span id='subtext'>Established 2020</span>
       <span id='subtext'>Brooklyn, NY 11211</span>
@@ -53,21 +53,10 @@ const Footer = () => (
               signup
             </a>
           </li>
-          <li>
-            <a
-              id='footerLinks'
-              href='/login'
-              rel='noopener noreferrer'
-            >
-              Your Account
-            </a>
-          </li>
         </ul>
       </li>
     </ul>
     </div>
-    <br/>
-    
     <div className='contactNav'>
     <ul >
       <li className='navItem'>
@@ -86,15 +75,12 @@ const Footer = () => (
           <li>
             <a
               id='footerLinks'
-              href='www.linkedin.com/in/v-mauna'
+              href='http://www.linkedin.com/in/v-mauna'
               target='_blank'
               rel='noopener noreferrer'
             >
             LinkedIn
             </a>
-          </li>
-          <li>
-          Thanks for stopping by
           </li>
         </ul>
       </li>

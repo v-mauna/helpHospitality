@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "aws-amplify": "^2.2.7",
+    "aws-amplify-react": "^4.1.6",
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -65,6 +66,7 @@
     "eslint-config-prettier": "^6.10.1",
     "husky": "^4.2.3",
     "material-ui": "^0.20.2",
-    "prettier": "^2.0.4"
+    "prettier": "^2.0.4",
+    "terser": "^3.14.1"
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import City from '../images/youAreHere.jpg'
 import axios from 'axios'
-import { replaceSpaces } from '../helperFunctions'
+import { replaceSpaces,replaceHyphens } from '../helperFunctions'
 import './singleRestaurant.css'
 
 const config = require('../config.json')
@@ -17,7 +17,7 @@ export default class SingleRestaurant extends Component {
 
   fetchRestaurant = async () => {
     const apiUrl = config.api.invokeUrl
-    let value = this.props.match.params.name
+    let value = this.props.match.params.name.toLowerCase()
     value = replaceSpaces(value)
     console.log('value', value)
     try {
@@ -43,7 +43,7 @@ export default class SingleRestaurant extends Component {
               <div key={restaurant.id} id="singleRestaurant">
               <div id="singleRestaurantText">
                 <p>
-                  Name: {restaurant.name}
+                  Name: {replaceHyphens(restaurant.name)}
                   <br />
                   Address: {restaurant.address}
                   <br />
@@ -51,9 +51,14 @@ export default class SingleRestaurant extends Component {
                   <br />
                   Hours: {restaurant.hours}
                   <br />
+                  Website: <a href={`http://wwww.${restaurant.website}`}>
+                    {' '}
+                    {restaurant.website}
+                  </a>
+                  <br />
                   Bio: {restaurant.bio}
                   <br/>
-                  Neighborhood: {restaurant.neighborhood}
+                  Neighborhood: {replaceHyphens(restaurant.neighborhood)}
                   <br />
                   Donations Link:{' '}
                   <a href={`http://wwww.${restaurant.donations}`}>
