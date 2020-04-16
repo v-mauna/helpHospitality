@@ -19,10 +19,8 @@ export default class SingleRestaurant extends Component {
     const apiUrl = config.api.invokeUrl
     let value = this.props.match.params.name.toLowerCase()
     value = replaceSpaces(value)
-    console.log('value', value)
     try {
       const response = await axios.get(`${apiUrl}/search/${value}`)
-      console.log('res', response)
       this.setState({ restaurant: response.data })
     } catch (error) {
       console.log('Your error is:', error.message)

@@ -22,7 +22,6 @@ export default class Navbar extends React.Component {
     window.location.assign('/login')
   }
   render () {
-    console.log('props',this.props)
     return (
       <nav id='main-navigation'>
         <link
@@ -33,13 +32,17 @@ export default class Navbar extends React.Component {
           <div className='topNav'>
             <Link id='link' duration={500} to='/'>
               Home
-            </Link>{' '}
+            </Link>
+            <Link id='link' to='/about' className='max-screen'>
+              About
+            </Link>
             <Link id='link' to='/restaurants' className='max-screen'>
               Restaurants
             </Link>
             <Link id='link' to='/resources' className='max-screen'>
               Resources
             </Link>
+            
             <Link id='link' to='/search' className='max-screen'>
               Search
             </Link>
@@ -76,6 +79,9 @@ export default class Navbar extends React.Component {
             <div className='dropdown-content'>
               <NavLink smooth to='/' className='min-screen'>
                 Home
+              </NavLink>
+              <NavLink smooth to='/about' className='min-screen'>
+                About
               </NavLink>
               <NavLink smooth to='/restaurants' className='min-screen'>
                 Restaurants

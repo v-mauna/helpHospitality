@@ -47,7 +47,6 @@ class ForgotPasswordVerification extends Component {
     try {
       const {username, confirmationcode, newpassword} = this.state;
       const ConfirmationCode = confirmationcode;
-      console.log('Code',confirmationcode)
       await Auth.forgotPasswordSubmit(
         username,
         ConfirmationCode,
@@ -60,7 +59,6 @@ class ForgotPasswordVerification extends Component {
   };
 
   onInputChange = (event) => {
-    console.log('cc',event.target.id,event.target.value)
     this.setState({
       [event.target.name]: event.target.value,
     });

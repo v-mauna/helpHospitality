@@ -118,7 +118,7 @@
 @media (max-width: 600px) {
   .exploreNav {
     font-size: 10px;
-    margin-left: 0;
+    margin-left: 1;
   }
 
   .contactNav {

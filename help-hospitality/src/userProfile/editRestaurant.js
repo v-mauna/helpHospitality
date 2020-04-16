@@ -52,14 +52,12 @@ export default class RestaurantEdit extends Component {
       id,
       username
     }
-    console.log('pARAMS',params)
     await this.props.handleUpdate(params)
   }
 
   onChange = event => this.setState({ [event.target.name]: event.target.value })
 
   render () {
-    console.log('State',this.state)
     return (
       <div className='updateRestaurants'>
         {this.state.isEditMode ? (

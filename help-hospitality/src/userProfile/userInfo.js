@@ -83,7 +83,6 @@ class Profile extends Component {
     //call to AWS API Gateway add restaurant endpoint here
     try {
       let updatedRestaurant = await axios.put(`${config.api.invokeUrl}/restaurants/${params.id}`, params)
-      console.log('UR data', updatedRestaurant.data)
       await this.fetchUserRestaurants()
     } catch (err) {
       console.log(`An error has occurred: ${err}`)

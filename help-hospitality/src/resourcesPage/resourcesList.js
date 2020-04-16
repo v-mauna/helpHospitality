@@ -82,10 +82,10 @@ const resourcesList = [
     name: `Eater's Guide on What to Eat and Drink in NYC`,
     site: `https://ny.eater.com/2020/4/8/21212046/nyc-what-to-eat-delivery-takeout-groceries-coronavirus-covid-19-shutdown`,
   },
-  { name: `Museum of Food and Drink's Guide for COVID-19 Resources`, site: `mofad.org/covid` },
+  { name: `Museum of Food and Drink's Guide for COVID-19 Resources`, site: `https://mofad.org/covid` },
   {
     name: `Donna Cocktail Club - Providing free meals to impacted service industry workers from our take out window located at 27 Broadway, Brooklyn, NY 11249.`,
-    site: `www.DonnaBKLYN.com`,
+    site: `https://www.DonnaBKLYN.com`,
   },
 
   {

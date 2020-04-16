@@ -2,7 +2,8 @@
 
 .search {
     display: block;
-    margin-bottom: 50%;
+	height:auto;
+    margin-bottom: auto;
 }
 
 .search img {
@@ -11,18 +12,19 @@
 }
 
 #results {
-	position: absolute;
-    text-align: center;
-	width: 100vw;
-	font-weight: 700;
+	display: flex; 
+	flex-wrap: wrap;
+	margin-top: 1em;
+	margin-left: 1em;
     height: auto;
-    display: block;
-    font-family: 'Lato', sans-serif;
-    box-sizing: border-box;
-    padding: 2em 3em ;
-    line-height: 20px;
-    color:black;
-    font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+	color: black;
+	display: block;
+	font-size: 14px;
+	text-align: justify;
+	align-items: left;
+	align-content: left;
 }
 
 
@@ -33,6 +35,5 @@ button{
 #searchResultsBlock{
     display: flex;
 	flex-direction: flex-start;
-	flex: 1;
 	flex-wrap: wrap;
 }

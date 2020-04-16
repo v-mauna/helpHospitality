@@ -44,7 +44,6 @@ class LogIn extends Component {
         password,
       });
       this.props.history.push('/profile');
-      console.log('User', user);
       this.props.auth.setAuthStatus(true);
       this.props.auth.setUser(user);
     } catch (error) {
@@ -56,7 +55,7 @@ class LogIn extends Component {
           cognito: error,
         },
       });
-      console.log('err', err);
+      console.log('Your login error is:', err);
     }
   };
 

@@ -5,7 +5,7 @@ const resource = props => (
   <div id='resource'>
         <a
           id='resourceLink'
-          href={`${props.site}`}
+          href={props.site}
           rel='noopener noreferrer'
           target='_blank'
         >

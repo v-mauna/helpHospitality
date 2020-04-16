@@ -25,26 +25,23 @@ export default class SearchPage extends Component {
     let value = this.state.searchValue.toLowerCase()
     let errorMsg = this.state.errorMessage
     value = replaceSpaces(value)
-    console.log('value', value)
     try {
       const response = await axios.get(`${apiUrl}/search/${value}`)
-      console.log('res', response)
-      if (response.data.Items.length > 0) {
+      if (response.data.Items.length !== 0) {
         this.setState({ restaurants: response.data })
         this.setState({ searchValue: '' })
-      } else {
-        errorMsg = 'Sorry but we could not locate any restaurants.'
-        document.getElementById('search-error-msg').innerHTML = errorMsg
+      }else{ 
+      errorMsg = 'Sorry but we could not locate any restaurants.'
+       document.getElementById('searcherrormsg').innerHTML = errorMsg
       }
     } catch (error) {
-      console.log('Your error is:', error.message)
+      console.log('Your error is:', error)
     }
   }
 
   handleChange = event => {
     event.preventDefault()
     const searchValue = event.target.value
-    console.log('sv', searchValue)
     this.setState({ searchValue })
   }
 
@@ -76,7 +73,7 @@ export default class SearchPage extends Component {
               <button type='submit' onClick={this.handleSubmit}>
                 Search
               </button>
-              <p id='search-error-msg'></p>
+              <p id='searcherrormsg'></p>
             </div>
           </div>
         </article>
@@ -102,6 +99,7 @@ export default class SearchPage extends Component {
             <button type='submit' onClick={this.handleSubmit}>
               Search
             </button>
+             <p id='searcherrormsg'></p>
 
             <div id='searchResultsBlock'>
               {restaurantList.map(restaurant => (

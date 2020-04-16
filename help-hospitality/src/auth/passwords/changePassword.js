@@ -40,7 +40,6 @@ export default class ChangePassword extends Component {
     }
     try {
       const user = await Auth.currentAuthenticatedUser()
-      console.log('User', user)
       await Auth.changePassword(
         user,
         this.state.oldpassword,

@@ -26,4 +26,6 @@
   background-color: rgba(0, 0, 0, 0.54);
   align-content: left;
   padding: 12%;
+  overflow-y: scroll;
 }
+

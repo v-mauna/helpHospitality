@@ -35,7 +35,6 @@ class Routes extends Component {
   componentDidMount = async () =>{
     try {
       const session = await Auth.currentSession()
-      console.log('Session',session)
       this.setAuthStatus(true)
       const user = await Auth.currentAuthenticatedUser()
       this.setUser(user)
@@ -67,14 +66,39 @@ class Routes extends Component {
           />
           <Route
             exact
-            path='/resources'
-            render={props => <Resources {...props} auth={authProps} />}
-          />
-          <Route
-            exact
             path='/about'
             render={props => <AboutPage  {...props} auth={authProps} />}
           />
+          <Route
+            exact
+            path='/changepassword'
+            render={props => <ChangePassword {...props} auth={authProps} />}
+          />
+          <Route
+            exact
+            path='/changepasswordconfirmation'
+            render={props => (
+              <ChangePasswordConfirm {...props} auth={authProps} />
+            )}
+          />
+          />
+          <Route
+            exact
+            path='/forgotPassword'
+            render={props => <ForgotPassword {...props} auth={authProps} />}
+          />
+          <Route
+            exact
+            path='/forgotpasswordverification'
+            render={props =><ForgotPasswordVerification {...props} auth={authProps}/>}
+          />
+          
+          <Route
+            exact
+            path='/resources'
+            render={props => <Resources {...props} auth={authProps} />}
+          />
+          
           <Route
             exact
             path='/restaurants'
@@ -108,29 +132,7 @@ class Routes extends Component {
             render={props => <Profile {...props} auth={authProps} />}/> : 
               <Route exact path="/*" render={props=><ErrorPage {...props} auth={authProps} />
           }/>}
-          <Route
-            exact
-            path='/forgotpassword'
-            render={props => <ForgotPassword {...props} auth={authProps} />}
-          />
-          <Route
-            exact
-            path='/forgotpasswordverification'
-            render={props =><ForgotPasswordVerification {...props} auth={authProps}/>}
-          />
-          <Route
-            exact
-            path='/changepassword'
-            render={props => <ChangePassword {...props} auth={authProps} />}
-          />
-          <Route
-            exact
-            path='/changepasswordconfirmation'
-            render={props => (
-              <ChangePasswordConfirm {...props} auth={authProps} />
-            )}
-          />
-          />
+          
           <Route exact path="/*" render={props=><ErrorPage {...props} auth={authProps} />}/>
         </Switch>
       </Router>

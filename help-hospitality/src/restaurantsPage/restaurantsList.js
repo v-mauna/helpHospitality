@@ -21,20 +21,13 @@ export default class Restaurants extends Component {
     }
   }
 
-  handleChange = event => {
-   const searchTerm = event.target.value.toLowerCase()
-   this.setState({searchValue: searchTerm})
-   console.log('SV', this.state.searchValue)
-  }
-
   componentDidMount = () => {
     this.fetchRestaurants()
   }
 
   render () {
     const restaurantList = this.state.restaurants.Items
-    if (restaurantList) {
-      console.log('RL', restaurantList)
+    if (restaurantList && restaurantList.length>0) {
       return (
         <article>
           <div className='restaurants'>
@@ -70,7 +63,7 @@ export default class Restaurants extends Component {
       <div className='restaurants'>
         <div id='kitchen'>
           <img src={Kitchen} alt='Kitchen Open Sign' />
-          <p id='restaurantText'> We are currently working on adding restaurants to our list.</p>
+          <p id='noRestaurantsText'> We are currently working on adding restaurants to our list.</p>
         </div>
       </div>
     )
