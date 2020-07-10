@@ -51,11 +51,13 @@ export default class ChangePassword extends Component {
     }
   }
 
-  onInputChange = event => {
+  onInputChange = evt => 
+  {
+    evt.preventDefault()
     this.setState({
-      [event.target.name]: event.target.value,
+      [evt.target.name]: evt.target.value,
     })
-    document.getElementById(event.target.id).classList.remove('is-danger')
+    document.getElementById(evt.target.id).classList.remove('is-danger')
   }
   render() {
     return (
@@ -63,7 +65,7 @@ export default class ChangePassword extends Component {
         <div className="changePasswordForm">
           <img id="peterPans" src={PeterPans} alt="Peter Pans Donut Shop" />
           <div id="changePasswordFormText">
-            <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+            <form onChange={this.onInputChange} onSubmit={this.handleSubmit}>
               <br />
 
               <h3>Change Your Password</h3>
@@ -72,11 +74,10 @@ export default class ChangePassword extends Component {
                 <br />
                 <input
                   id="inputBox"
-                  value={this.state.oldpassword}
-                  onChange={this.handleChange}
+                  onChange={this.onInputChange}
                   name="oldPassword"
                   placeholder="Enter your old password"
-                  type="text"
+                  type="password"
                 />
                 <br />
                 <label value={this.state.newpassword} htmlFor="password">

@@ -40,7 +40,7 @@ class ForgotPassword extends Component {
       await Auth.forgotPassword(this.state.email);
       this.props.history.push('forgotPasswordVerification');
     } catch (error) {
-      console.log('Error', error);
+      console.log('Error', error.message);
     }
   };
 
