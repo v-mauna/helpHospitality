@@ -21,13 +21,12 @@ export default class RestaurantEdit extends Component {
     this.handleRestaurantEdit = this.handleRestaurantEdit.bind(this)
   }
 
-  handleRestaurantEdit = event => {
-    event.preventDefault()
+  handleRestaurantEdit = evt => {
+    evt.preventDefault()
     this.setState({ isEditMode: true })
   }
 
   handleEditSave = async event => {
-    event.preventDefault()
     this.setState({ isEditMode: false })
     let {
       hours,
@@ -41,6 +40,7 @@ export default class RestaurantEdit extends Component {
       neighborhood,
       username
     } = this.state
+    console.log('state', this.state)
     let params = {
       website,
       hours,donations,
@@ -55,7 +55,10 @@ export default class RestaurantEdit extends Component {
     await this.props.handleUpdate(params)
   }
 
-  onChange = event => this.setState({ [event.target.name]: event.target.value })
+  handleChange = evt => {
+    evt.preventDefault();
+    this.setState({ [evt.target.name]: evt.target.value })
+  }
 
   render () {
     return (
@@ -66,19 +69,17 @@ export default class RestaurantEdit extends Component {
             <input
               type='text'
               id='editInputBox'
-              value={this.props.hours}
               name='hours'
               placeholder='Enter updated hours'
-              onChange={this.onChange}
+              onChange={this.handleChange}
             />
             <p>Edit Donations Link</p>
             <input
               id='editInputBox'
               type='text'
-              value={this.props.donations}
               name='donations'
               placeholder='Enter donations link'
-              onChange={this.onChange}
+              onChange={this.handleChange}
             />
             <p>Edit Website Link</p>
             <input
@@ -86,8 +87,7 @@ export default class RestaurantEdit extends Component {
               type='text'
               name='website'
               placeholder='Enter updated website information'
-              value={this.props.website}
-              onChange={this.onChange}
+              onChange={this.handleChange}
             />
             <br />
             <button
